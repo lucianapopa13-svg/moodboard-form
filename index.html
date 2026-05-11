@@ -616,25 +616,10 @@ body {
 </div>
 
 <script>
-// ── Microsoft Forms API ──
-const FORMS_BASE = "https://forms.microsoft.com/formapi/api";
-const TENANT_ID  = "917cdeaf-3e49-4f85-9a6e-d070c91b167f";
-const USER_ID    = "3596d235-6c04-429c-8de8-4bfbf8088c97";
-const FORM_ID    = "r958kUk-hU-abtBwyRsWfzXSljUEbJxCjehL-_gIjJdUQlJONzdUWlZWNEJHTDFJQTZTV1JVRkxDOC4u";
-const SUBMIT_URL = `${FORMS_BASE}/${TENANT_ID}/users/${USER_ID}/forms('${FORM_ID}')/responses`;
-
-// Question IDs from the form
-const Q = {
-  name:    "rfad70ce398444401b684345e91fa3f3f",
-  animal:  "r8f62c2a8161c462caf1218ffa310785b",
-  anthem:  "r781936a298554007a2de23559b4fd774",
-  pizza:   "rc13e969af2014aa09942d1ca554ea9a5",
-  support: "r0868babb6806455291906b54af2930b0",
-  vibe:    "r3912b060e6364a84be38754f0278f11f",
-  stolen:  "rb2c641d9f47d4d4ebaa98d9c94be2eff",
-  hidden:  "r697f091b0cf54c1ba6586419c9f6ddbf",
-  shocking:"r8e635c5a10734e9580271b02428f3269"
-};
+// ── Confluence API ──
+const CONFLUENCE_BASE = "https://fanduel.atlassian.net/wiki/api/v2";
+const SPACE_ID        = "~7120203c043388f9d041e7bbfa5f7c96656c07";
+const PARENT_PAGE_ID  = "311556669768";
 
 const picks = {};
 
@@ -690,38 +675,55 @@ async function submitForm() {
   document.getElementById('sendingOverlay').classList.add('show');
   document.getElementById('submitBtn').disabled = true;
 
-  // Build Microsoft Forms response payload
   try {
-    const startDate = new Date().toISOString();
-    const answers = [
-      { questionId: Q.name,    answer1: name },
-      { questionId: Q.animal,  answer1: q1   },
-      { questionId: Q.anthem,  answer1: q2   },
-      { questionId: Q.pizza,   answer1: q3   },
-      { questionId: Q.support, answer1: q4   },
-      { questionId: Q.vibe,    answer1: q5   },
-      { questionId: Q.stolen,  answer1: q6   },
-      { questionId: Q.hidden,  answer1: q7   },
-      { questionId: Q.shocking,answer1: q8   }
-    ];
+    const timestamp = new Date().toLocaleString('en-GB');
+
+    // Build a beautiful Confluence page for this person
+    const pageBody = `
+      <h1>${name}</h1>
+      <div data-type="panel-info">
+        <p><strong>Submitted:</strong> ${timestamp}</p>
+      </div>
+      <table>
+        <tbody>
+          <tr><th>🐾 Spirit Animal</th><td>${q1}</td></tr>
+          <tr><th>🎵 Power Anthem</th><td>${q2}</td></tr>
+          <tr><th>🍕 Pizza Identity</th><td>${q3}</td></tr>
+          <tr><th>🆘 Support Protocol</th><td>${q4}</td></tr>
+          <tr><th>🌡️ Current Vibe</th><td>${q5}</td></tr>
+          <tr><th>🌈 Coveted Superpower</th><td>${q6}</td></tr>
+          <tr><th>🃏 Hidden Superpower</th><td>${q7}</td></tr>
+          <tr><th>🎭 Shocking Fact</th><td>${q8}</td></tr>
+        </tbody>
+      </table>
+    `;
 
     const payload = {
-      startDate,
-      submitDate: new Date().toISOString(),
-      answers: JSON.stringify(answers)
+      title: `Moodboard — ${name}`,
+      spaceId: SPACE_ID,
+      parentId: PARENT_PAGE_ID,
+      status: "current",
+      body: {
+        representation: "storage",
+        value: pageBody
+      }
     };
 
-    const res = await fetch(SUBMIT_URL, {
+    const res = await fetch(`${CONFLUENCE_BASE}/pages`, {
       method: 'POST',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'X-Atlassian-Token': 'no-check'
       },
       body: JSON.stringify(payload)
     });
 
-    if (!res.ok) throw new Error(`Forms error: ${res.status}`);
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(`Confluence error: ${res.status} — ${JSON.stringify(errData)}`);
+    }
 
     document.getElementById('sendingOverlay').classList.remove('show');
     document.getElementById('formView').style.display = 'none';
@@ -730,7 +732,7 @@ async function submitForm() {
   } catch(e) {
     document.getElementById('sendingOverlay').classList.remove('show');
     document.getElementById('submitBtn').disabled = false;
-    err.textContent = '⚠ Could not save. Make sure you are logged into your FanDuel Microsoft account and try again.';
+    err.textContent = '⚠ Could not save. Make sure you are logged into FanDuel Confluence and try again.';
     err.classList.add('show');
     console.error(e);
   }
