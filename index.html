@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Moodboard — FanDuel</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+:root {
+  --navy:    #001C55;
+  --navy2:   #00143D;
+  --navy3:   #002266;
+  --blue:    #0078FF;
+  --blue2:   #0056B8;
+  --yellow:  #FFDC2E;
+  --white:   #FFFFFF;
+  --muted:   #6B8CC4;
+  --light:   #B8C8E8;
+  --error:   #FF6B6B;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.fd-header {
+  background: var(--navy2);
+  border-bottom: 3px solid var(--blue);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.fd-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--yellow);
+  text-transform: uppercase;
+}
+.fd-logo span { color: var(--blue); }
+.fd-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 40px 56px;
+  text-align: center;
+  background: var(--navy2);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,120,255,.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 20% 100%, rgba(255,220,46,.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  position: relative;
+}
+.hero h1 em { color: var(--yellow); font-style: normal; display: block; }
+.hero p {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: var(--light);
+  max-width: 480px;
+  margin-inline: auto;
+  line-height: 1.65;
+  font-weight: 300;
+  position: relative;
+}
+
+/* progress bar */
+.progress-wrap {
+  max-width: 680px;
+  margin: 32px auto 0;
+  position: relative;
+}
+.progress-track {
+  background: var(--navy3);
+  border-radius: 100px;
+  height: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--yellow));
+  border-radius: 100px;
+  transition: width .5s cubic-bezier(.16,1,.3,1);
+  width: 0%;
+}
+.progress-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+  text-align: right;
+}
+
+/* ── FORM WRAP ── */
+.form-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 24px 100px;
+}
+
+/* name block */
+.name-block {
+  margin-bottom: 32px;
+}
+.field-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 10px;
+  display: block;
+}
+.name-input {
+  width: 100%;
+  background: var(--navy3);
+  border: 2px solid var(--yellow);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: .03em;
+  transition: box-shadow .2s;
+}
+.name-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255,220,46,.2);
+}
+.name-input::placeholder { color: #334; }
+
+/* question cards */
+.q-card {
+  background: var(--navy3);
+  border: 1.5px solid var(--blue2);
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+  margin-bottom: 16px;
+  transition: border-color .2s;
+  position: relative;
+  overflow: hidden;
+}
+.q-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--blue);
+  border-radius: 12px 0 0 12px;
+}
+.q-card.accent-yellow::before { background: var(--yellow); }
+.q-card:focus-within { border-color: var(--blue); }
+.q-card.accent-yellow:focus-within { border-color: var(--yellow); }
+
+.q-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--blue2);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.accent-yellow .q-num { color: rgba(255,220,46,.25); }
+
+.q-question {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  color: var(--white);
+}
+.q-hint {
+  font-size: .8rem;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* animal grid */
+.animal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+.animal-opt {
+  background: var(--navy2);
+  border: 2px solid var(--blue2);
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: all .15s;
+  position: relative;
+}
+.animal-opt:hover {
+  border-color: var(--blue);
+  background: rgba(0,120,255,.1);
+  transform: translateY(-1px);
+}
+.animal-opt.sel {
+  border-color: var(--yellow);
+  background: rgba(255,220,46,.1);
+}
+.animal-opt.sel::after {
+  content: '✓';
+  position: absolute;
+  top: 8px; right: 10px;
+  background: var(--yellow);
+  color: var(--navy);
+  border-radius: 50%;
+  width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem;
+  font-weight: 800;
+}
+.animal-emoji { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+.animal-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--white);
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+.animal-opt.sel .animal-name { color: var(--yellow); }
+.animal-desc {
+  font-size: .72rem;
+  color: var(--muted);
+  line-height: 1.35;
+  font-weight: 300;
+}
+
+/* option buttons */
+.opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.opt {
+  background: var(--navy2);
+  border: 2px solid var(--blue2);
+  border-radius: 10px;
+  padding: 13px 16px;
+  cursor: pointer;
+  font-family: 'Barlow', sans-serif;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--white);
+  text-align: left;
+  line-height: 1.35;
+  transition: all .15s;
+}
+.opt:hover { border-color: var(--blue); background: rgba(0,120,255,.1); }
+.opt.sel { border-color: var(--yellow); background: rgba(255,220,46,.1); color: var(--yellow); font-weight: 600; }
+.opt small { display: block; color: var(--muted); font-weight: 300; font-size: .78rem; margin-top: 2px; }
+.opt.sel small { color: rgba(255,220,46,.6); }
+
+/* text inputs */
+.txt {
+  width: 100%;
+  background: var(--navy2);
+  border: 2px solid var(--blue2);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: 'Barlow', sans-serif;
+  font-size: .95rem;
+  color: var(--white);
+  resize: vertical;
+  min-height: 90px;
+  transition: border-color .2s;
+  font-weight: 300;
+}
+.txt:focus { outline: none; border-color: var(--blue); }
+.txt::placeholder { color: var(--muted); }
+
+/* submit */
+.submit-btn {
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, opacity .2s;
+  box-shadow: 0 6px 30px rgba(0,120,255,.35);
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,120,255,.5); }
+.submit-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* error */
+.err {
+  color: var(--error);
+  font-size: .82rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-top: 16px;
+  text-align: center;
+  display: none;
+}
+.err.show { display: block; }
+
+/* ── SUCCESS ── */
+.success {
+  display: none;
+  min-height: 80vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  animation: fadeUp .5s ease both;
+}
+.success.show { display: flex; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none} }
+
+.success-icon {
+  width: 80px; height: 80px;
+  background: var(--blue);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 28px;
+  box-shadow: 0 0 40px rgba(0,120,255,.4);
+}
+.success h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+.success p {
+  color: var(--light);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 380px;
+  font-weight: 300;
+}
+
+/* ── SENDING STATE ── */
+.sending-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,28,85,.85);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.sending-overlay.show { display: flex; }
+.spinner {
+  width: 48px; height: 48px;
+  border: 3px solid rgba(0,120,255,.2);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.sending-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+</style>
+</head>
+<body>
+
+<!-- SENDING OVERLAY -->
+<div class="sending-overlay" id="sendingOverlay">
+  <div class="spinner"></div>
+  <div class="sending-text">Saving your moodboard…</div>
+</div>
+
+<!-- HEADER -->
+<div class="fd-header">
+  <div class="fd-logo" style="color:#6BB5FF;font-size:1.1rem;">FanDuel Casino Delivery Team</div>
+  <div class="fd-badge">🎉 Moodboard Activity · Class of 2026</div>
+</div>
+
+<!-- MAIN FORM -->
+<div id="formView">
+  <div class="hero">
+    <div class="hero-eyebrow">Secret Questionnaire · Don't share your answers</div>
+    <h1>Your<br><em>Moodboard</em></h1>
+    <p>Fill this in honestly. Or chaotically. Both are correct. Your answers will be revealed at the team activity — no peeking until then!</p>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">0 of 8 answered</div>
+    </div>
+  </div>
+
+  <div class="form-wrap">
+
+    <!-- NAME -->
+    <div class="name-block">
+      <label class="field-label">Your Name</label>
+      <input class="name-input" id="colName" type="text"
+        placeholder="First name is fine…" maxlength="60"
+        oninput="updateProgress()"/>
+    </div>
+
+    <!-- Q1 ANIMAL -->
+    <div class="q-card accent-yellow">
+      <div class="q-num">01</div>
+      <div class="q-question">🐾 Which animal are you when you're in deep focus mode?</div>
+      <div class="q-hint">Pick the one that speaks to your soul — no wrong answers</div>
+      <div class="animal-grid" id="q1">
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🦦 The Otter — suspiciously cheerful, gets things done while having the best time')">
+          <span class="animal-emoji">🦦</span>
+          <div class="animal-name">The Otter</div>
+          <div class="animal-desc">Suspiciously cheerful, gets things done while having the best time</div>
+        </button>
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🦙 The Alpaca — looks fluffy and approachable, deceptively high standards, quietly analysing everything')">
+          <span class="animal-emoji">🦙</span>
+          <div class="animal-name">The Alpaca</div>
+          <div class="animal-desc">Looks fluffy and approachable, deceptively high standards, quietly analysing everything</div>
+        </button>
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🐓 The Rooster — first in, loudest in the room, sets the pace for everyone else')">
+          <span class="animal-emoji">🐓</span>
+          <div class="animal-name">The Rooster</div>
+          <div class="animal-desc">First in, loudest in the room, sets the pace for everyone else</div>
+        </button>
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🦔 The Hedgehog — quiet, a little prickly when interrupted, secretly the most reliable person here')">
+          <span class="animal-emoji">🦔</span>
+          <div class="animal-name">The Hedgehog</div>
+          <div class="animal-desc">Quiet, a little prickly when interrupted, secretly the most reliable</div>
+        </button>
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🦆 The Duck — looks calm on the surface, absolutely sprinting underneath')">
+          <span class="animal-emoji">🦆</span>
+          <div class="animal-name">The Duck</div>
+          <div class="animal-desc">Looks calm on the surface, absolutely sprinting underneath</div>
+        </button>
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🐧 The Penguin — formal on the outside, absolutely unhinged on a night out')">
+          <span class="animal-emoji">🐧</span>
+          <div class="animal-name">The Penguin</div>
+          <div class="animal-desc">Formal on the outside, absolutely unhinged on a night out</div>
+        </button>
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🦘 The Kangaroo — carries everyone and everything, somehow still bouncing')">
+          <span class="animal-emoji">🦘</span>
+          <div class="animal-name">The Kangaroo</div>
+          <div class="animal-desc">Carries everyone and everything, somehow still bouncing</div>
+        </button>
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🐙 The Octopus — eight things at once, all of them somehow working')">
+          <span class="animal-emoji">🐙</span>
+          <div class="animal-name">The Octopus</div>
+          <div class="animal-desc">Eight things at once, all of them somehow working</div>
+        </button>
+
+        <button class="animal-opt" onclick="pickAnimal(this,'🦩 The Flamingo — effortlessly stylish, always balanced, makes everything look easy')">
+          <span class="animal-emoji">🦩</span>
+          <div class="animal-name">The Flamingo</div>
+          <div class="animal-desc">Effortlessly stylish, always balanced, makes everything look easy</div>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card">
+      <div class="q-num">02</div>
+      <div class="q-question">🎵 What song plays in your head when you're absolutely killing it at work?</div>
+      <div class="q-hint">Your power anthem — no judgement zone whatsoever</div>
+      <textarea class="txt" id="q2" placeholder="e.g. Eye of the Tiger, Sonne by Rammstein, Beyoncé's entire discography…" oninput="updateProgress()"></textarea>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card accent-yellow">
+      <div class="q-num">03</div>
+      <div class="q-question">🍕 You are a pizza topping. Which one and why?</div>
+      <div class="q-hint">Think about how you contribute to a team — are you the reliable base everyone builds on, the bold flavour that divides opinion, the subtle ingredient nobody notices until it's gone, or the one that ties everything together? Your pizza topping says more about you than you think.</div>
+      <textarea class="txt" id="q3" placeholder="e.g. Pineapple — controversial but always brings the conversation…" oninput="updateProgress()"></textarea>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card">
+      <div class="q-num">04</div>
+      <div class="q-question">🆘 When you're stuck or stressed, what do teammates NOT know they should do?</div>
+      <div class="q-hint">This becomes your official Support Protocol</div>
+      <div class="opts" id="q4">
+        <button class="opt" onclick="pick('q4',this,'🍫 Silently deliver snacks and say nothing')">🍫 Deliver snacks<small>Say nothing, just be there</small></button>
+        <button class="opt" onclick="pick('q4',this,'🤙 Send one check-in meme, no reply needed')">🤙 Send a meme<small>No reply needed, just vibes</small></button>
+        <button class="opt" onclick="pick('q4',this,'🧹 Help clear my plate — just fix one thing')">🧹 Clear my plate<small>Take one task off my hands</small></button>
+        <button class="opt" onclick="pick('q4',this,'🎤 Let me vent for 3 minutes, no advice')">🎤 Let me vent<small>No advice, just listening</small></button>
+        <button class="opt" onclick="pick('q4',this,'🫥 Give me space — I need to disappear for a bit')">🫥 Give me space<small>I need to disappear for a bit</small></button>
+        <button class="opt" onclick="pick('q4',this,'🔄 Help me zoom out — remind me of the big picture')">🔄 Zoom me out<small>Remind me of the big picture</small></button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card accent-yellow">
+      <div class="q-num">05</div>
+      <div class="q-question">🌡️ Rate your current season of work-life on the Vibe Scale™</div>
+      <div class="q-hint">An honest check-in, disguised as fun</div>
+      <div class="opts" id="q5">
+        <button class="opt" onclick="pick('q5',this,'🌱 Planting seeds — building slow and steady')">🌱 Planting seeds<small>Building slow and steady</small></button>
+        <button class="opt" onclick="pick('q5',this,'🚀 In orbit — everything is moving fast')">🚀 In orbit<small>Everything is moving fast</small></button>
+        <button class="opt" onclick="pick('q5',this,'🛁 Soaking — recharging and reflecting')">🛁 Soaking<small>Recharging and reflecting</small></button>
+        <button class="opt" onclick="pick('q5',this,'🫠 Melting — surviving but need a win')">🫠 Melting<small>Surviving but need a win</small></button>
+        <button class="opt" onclick="pick('q5',this,'🌊 Riding waves — highs and lows but staying afloat')">🌊 Riding waves<small>Highs and lows, staying afloat</small></button>
+        <button class="opt" onclick="pick('q5',this,'🔋 Recharging — low battery but plugged in')">🔋 Recharging<small>Low battery but plugged in</small></button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card">
+      <div class="q-num">06</div>
+      <div class="q-question">🌈 If you could steal any superpower from a colleague right now, what would it be?</div>
+      <div class="q-hint">A skill, a quality, a vibe — anything goes</div>
+      <textarea class="txt" id="q6" placeholder="e.g. The ability to say no without feeling guilty…" oninput="updateProgress()"></textarea>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-card accent-yellow">
+      <div class="q-num">07</div>
+      <div class="q-question">🃏 What's your workplace superpower that's criminally underrated?</div>
+      <div class="q-hint">Brag a little — you genuinely deserve it</div>
+      <textarea class="txt" id="q7" placeholder="e.g. I remember everything discussed in every meeting. I am a human notes app." oninput="updateProgress()"></textarea>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card">
+      <div class="q-num">08</div>
+      <div class="q-question">🎭 Complete this sentence: "People would be shocked to learn I…"</div>
+      <div class="q-hint">The classic reveal moment — make it count</div>
+      <textarea class="txt" id="q8" placeholder="e.g. …once ate an entire wheel of brie in one sitting and feel no regret." oninput="updateProgress()"></textarea>
+    </div>
+
+    <div class="err" id="errMsg">⚠ Please fill in your name and answer all 8 questions before submitting.</div>
+    <button class="submit-btn" id="submitBtn" onclick="submitForm()">
+      Submit My Moodboard →
+    </button>
+
+  </div>
+</div>
+
+<!-- SUCCESS -->
+<div class="success" id="successView">
+  <div class="success-icon">✓</div>
+  <h2>You're In!</h2>
+  <p>Your moodboard has been saved. Your identity will be revealed at the team activity — try not to spoil it!</p>
+</div>
+
+<script>
+// ── SharePoint List API ──
+const SP_SITE = "https://fanduelgroup-my.sharepoint.com/personal/luciana_popa_fanduel_com";
+const SP_LIST = "Team Moodboard 2026";
+const SP_API  = `${SP_SITE}/_api/web/lists/getbytitle('${SP_LIST}')/items`;
+
+const picks = {};
+
+function pickAnimal(btn, val) {
+  picks['q1'] = val;
+  document.querySelectorAll('#q1 .animal-opt').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  updateProgress();
+}
+
+function pick(qId, btn, val) {
+  picks[qId] = val;
+  document.querySelectorAll(`#${qId} .opt`).forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  updateProgress();
+}
+
+function v(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+
+function updateProgress() {
+  let answered = 0;
+  if (v('colName')) answered++;
+  if (picks['q1']) answered++;
+  if (v('q2')) answered++;
+  if (v('q3')) answered++;
+  if (picks['q4']) answered++;
+  if (picks['q5']) answered++;
+  if (v('q6')) answered++;
+  if (v('q7')) answered++;
+  if (v('q8')) answered++;
+  const pct = Math.round((answered / 9) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent =
+    answered >= 9 ? '✓ All done — ready to submit!' : `${answered - (v('colName')?1:0)} of 8 answered`;
+}
+
+async function submitForm() {
+  const name = v('colName');
+  const q2=v('q2'), q3=v('q3'), q6=v('q6'), q7=v('q7'), q8=v('q8');
+  const q1=picks['q1'], q4=picks['q4'], q5=picks['q5'];
+  const err = document.getElementById('errMsg');
+
+  if (!name||!q1||!q2||!q3||!q4||!q5||!q6||!q7||!q8) {
+    err.classList.add('show');
+    err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  err.classList.remove('show');
+
+  document.getElementById('sendingOverlay').classList.add('show');
+  document.getElementById('submitBtn').disabled = true;
+
+  // SharePoint requires a Request Digest token for POST requests
+  try {
+    // Step 1 — get the form digest
+    const digestRes = await fetch(`${SP_SITE}/_api/contextinfo`, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json;odata=verbose' },
+      credentials: 'include'
+    });
+    const digestData = await digestRes.json();
+    const digest = digestData.d.GetContextWebInformation.FormDigestValue;
+
+    // Step 2 — post the item
+    const payload = {
+      __metadata: { type: `SP.Data.Team_x0020_Moodboard_x0020_2026ListItem` },
+      Title:       name,
+      Animal:      q1,
+      Anthem:      q2,
+      Pizza:       q3,
+      Support:     q4,
+      Vibe:        q5,
+      StolenPower: q6,
+      HiddenPower: q7,
+      ShockingFact:q8,
+      Statement:   ""
+    };
+
+    const postRes = await fetch(SP_API, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept':       'application/json;odata=verbose',
+        'Content-Type': 'application/json;odata=verbose',
+        'X-RequestDigest': digest
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!postRes.ok) throw new Error(`SharePoint error: ${postRes.status}`);
+
+    document.getElementById('sendingOverlay').classList.remove('show');
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('successView').classList.add('show');
+
+  } catch(e) {
+    document.getElementById('sendingOverlay').classList.remove('show');
+    document.getElementById('submitBtn').disabled = false;
+    err.textContent = '⚠ Could not save. Make sure you are logged into FanDuel and try again.';
+    err.classList.add('show');
+    console.error(e);
+  }
+}
+</script>
+</body>
+</html>
