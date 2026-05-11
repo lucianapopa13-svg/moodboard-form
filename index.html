@@ -616,10 +616,8 @@ body {
 </div>
 
 <script>
-// ── Confluence API ──
-const CONFLUENCE_BASE = "https://fanduel.atlassian.net/wiki/api/v2";
-const SPACE_ID        = "~7120203c043388f9d041e7bbfa5f7c96656c07";
-const PARENT_PAGE_ID  = "311556669768";
+// ── Slack Webhook ──
+const SLACK_WEBHOOK = "https://hooks.slack.com/triggers/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";
 
 const picks = {};
 
@@ -678,53 +676,19 @@ async function submitForm() {
   try {
     const timestamp = new Date().toLocaleString('en-GB');
 
-    // Build a beautiful Confluence page for this person
-    const pageBody = `
-      <h1>${name}</h1>
-      <div data-type="panel-info">
-        <p><strong>Submitted:</strong> ${timestamp}</p>
-      </div>
-      <table>
-        <tbody>
-          <tr><th>🐾 Spirit Animal</th><td>${q1}</td></tr>
-          <tr><th>🎵 Power Anthem</th><td>${q2}</td></tr>
-          <tr><th>🍕 Pizza Identity</th><td>${q3}</td></tr>
-          <tr><th>🆘 Support Protocol</th><td>${q4}</td></tr>
-          <tr><th>🌡️ Current Vibe</th><td>${q5}</td></tr>
-          <tr><th>🌈 Coveted Superpower</th><td>${q6}</td></tr>
-          <tr><th>🃏 Hidden Superpower</th><td>${q7}</td></tr>
-          <tr><th>🎭 Shocking Fact</th><td>${q8}</td></tr>
-        </tbody>
-      </table>
-    `;
-
     const payload = {
-      title: `Moodboard — ${name}`,
-      spaceId: SPACE_ID,
-      parentId: PARENT_PAGE_ID,
-      status: "current",
-      body: {
-        representation: "storage",
-        value: pageBody
-      }
+      name, q1, q2, q3, q4, q5, q6, q7, q8, timestamp
     };
 
-    const res = await fetch(`${CONFLUENCE_BASE}/pages`, {
+    // Slack webhooks support no-cors so we use mode: 'no-cors'
+    await fetch(SLACK_WEBHOOK, {
       method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'X-Atlassian-Token': 'no-check'
-      },
-      body: JSON.stringify(payload)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      mode: 'no-cors'
     });
 
-    if (!res.ok) {
-      const errData = await res.json().catch(() => ({}));
-      throw new Error(`Confluence error: ${res.status} — ${JSON.stringify(errData)}`);
-    }
-
+    // no-cors means we can't read the response but if no exception = success
     document.getElementById('sendingOverlay').classList.remove('show');
     document.getElementById('formView').style.display = 'none';
     document.getElementById('successView').classList.add('show');
@@ -732,7 +696,7 @@ async function submitForm() {
   } catch(e) {
     document.getElementById('sendingOverlay').classList.remove('show');
     document.getElementById('submitBtn').disabled = false;
-    err.textContent = '⚠ Could not save. Make sure you are logged into FanDuel Confluence and try again.';
+    err.textContent = '⚠ Could not save. Please try again.';
     err.classList.add('show');
     console.error(e);
   }
