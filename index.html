@@ -283,8 +283,8 @@ body {
 /* option buttons */
 .opts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
 }
 .opt {
   background: var(--navy2);
@@ -302,7 +302,7 @@ body {
 }
 .opt:hover { border-color: var(--blue); background: rgba(0,120,255,.1); }
 .opt.sel { border-color: var(--yellow); background: rgba(255,220,46,.1); color: var(--yellow); font-weight: 600; }
-.opt small { display: block; color: var(--muted); font-weight: 300; font-size: .78rem; margin-top: 2px; }
+.opt small { display: block; color: var(--muted); font-weight: 300; font-size: .78rem; margin-top: 6px; line-height: 1.5; }
 .opt.sel small { color: rgba(255,220,46,.6); }
 
 /* text inputs */
@@ -534,30 +534,30 @@ body {
     <div class="q-card">
       <div class="q-num">02</div>
       <div class="q-question">🎵 What song plays in your head when you're absolutely killing it at work?</div>
-      <div class="q-hint">Your power anthem — no judgement zone whatsoever</div>
-      <textarea class="txt" id="q2" placeholder="e.g. Eye of the Tiger, Sonne by Rammstein, Beyoncé's entire discography…" oninput="updateProgress()"></textarea>
+      <div class="q-hint">Your power anthem — name the artist and the song title. No judgement zone whatsoever.</div>
+      <textarea class="txt" id="q2" placeholder="e.g. Rammstein — Sonne, Beyoncé's entire discography…" oninput="updateProgress()"></textarea>
     </div>
 
     <!-- Q3 -->
     <div class="q-card accent-yellow">
       <div class="q-num">03</div>
       <div class="q-question">🍕 You are a pizza topping. Which one and why?</div>
-      <div class="q-hint">Think about how you contribute to a team — are you the reliable base everyone builds on, the bold flavour that divides opinion, the subtle ingredient nobody notices until it's gone, or the one that ties everything together? Your pizza topping says more about you than you think.</div>
-      <textarea class="txt" id="q3" placeholder="e.g. Pineapple — controversial but always brings the conversation…" oninput="updateProgress()"></textarea>
+      <div class="q-hint">Think about how you contribute to a team — are you the reliable base everyone builds on? The bold flavour that divides opinion? The subtle ingredient nobody notices until it's gone? Pick your topping <strong>and explain why</strong> — the reason is the whole point.</div>
+      <textarea class="txt" id="q3" placeholder="e.g. Pineapple — controversial, nobody expects it, but once it's there the conversation never stops. I'm the person who brings the unexpected angle nobody asked for but secretly needed." oninput="updateProgress()"></textarea>
     </div>
 
     <!-- Q4 -->
     <div class="q-card">
       <div class="q-num">04</div>
       <div class="q-question">🆘 When you're stuck or stressed, what do teammates NOT know they should do?</div>
-      <div class="q-hint">This becomes your official Support Protocol</div>
+      <div class="q-hint">This becomes your official Support Protocol — the one thing that actually helps, even if nobody ever thinks to do it</div>
       <div class="opts" id="q4">
-        <button class="opt" onclick="pick('q4',this,'🍫 Silently deliver snacks and say nothing')">🍫 Deliver snacks<small>Say nothing, just be there</small></button>
-        <button class="opt" onclick="pick('q4',this,'🤙 Send one check-in meme, no reply needed')">🤙 Send a meme<small>No reply needed, just vibes</small></button>
-        <button class="opt" onclick="pick('q4',this,'🧹 Help clear my plate — just fix one thing')">🧹 Clear my plate<small>Take one task off my hands</small></button>
-        <button class="opt" onclick="pick('q4',this,'🎤 Let me vent for 3 minutes, no advice')">🎤 Let me vent<small>No advice, just listening</small></button>
-        <button class="opt" onclick="pick('q4',this,'🫥 Give me space — I need to disappear for a bit')">🫥 Give me space<small>I need to disappear for a bit</small></button>
-        <button class="opt" onclick="pick('q4',this,'🔄 Help me zoom out — remind me of the big picture')">🔄 Zoom me out<small>Remind me of the big picture</small></button>
+        <button class="opt" onclick="pick('q4',this,'🎤 Let me vent — no advice, no fixes, just ears')">🎤 Let me vent<small>Sit down, ask nothing and just listen. No solutions, no reframes, no "have you tried…". Stay quiet until I run out of words. That's the whole job.</small></button>
+        <button class="opt" onclick="pick('q4',this,'🔄 Help me zoom out — remind me of the big picture')">🔄 Zoom me out<small>Pull me back up to altitude. Remind me of the goal, the progress, where we actually are in the story. A 5-minute perspective reset does more than an hour of reassurance.</small></button>
+        <button class="opt" onclick="pick('q4',this,'🧹 Ask me what I need — and help if you can')">🧹 Ask me what I need<small>Don't assume — just ask. A simple "what would help right now?" is enough. Then if you can take something on, do it. If not, the asking alone already helps.</small></button>
+        <button class="opt" onclick="pick('q4',this,'🪞 Challenge me — ask the question I'm avoiding')">🪞 Challenge me<small>Ask the uncomfortable question I'm dancing around. Push back on the assumption, poke the blind spot. Help me see what I'm too close to notice myself.</small></button>
+        <button class="opt" onclick="pick('q4',this,'☕ Sit with me — no agenda, just company')">☕ Just sit with me<small>No advice needed, no action required — just don't let me be alone in it. Grab a coffee, work alongside me, be in the room. Presence without pressure.</small></button>
+        <button class="opt" onclick="pick('q4',this,'🎯 Help me pick one thing and start — decision paralysis is the enemy')">🎯 Help me pick one thing<small>Ask me what's on my plate and help me choose where to start. Don't fix everything — just break the freeze. Once I'm moving in any direction, I'm fine.</small></button>
       </div>
     </div>
 
@@ -565,14 +565,14 @@ body {
     <div class="q-card accent-yellow">
       <div class="q-num">05</div>
       <div class="q-question">🌡️ Rate your current season of work-life on the Vibe Scale™</div>
-      <div class="q-hint">An honest check-in, disguised as fun</div>
+      <div class="q-hint">The most honest question on this form — no right answer, no wrong answer, just a real check-in on where you actually are right now</div>
       <div class="opts" id="q5">
-        <button class="opt" onclick="pick('q5',this,'🌱 Planting seeds — building slow and steady')">🌱 Planting seeds<small>Building slow and steady</small></button>
-        <button class="opt" onclick="pick('q5',this,'🚀 In orbit — everything is moving fast')">🚀 In orbit<small>Everything is moving fast</small></button>
-        <button class="opt" onclick="pick('q5',this,'🛁 Soaking — recharging and reflecting')">🛁 Soaking<small>Recharging and reflecting</small></button>
-        <button class="opt" onclick="pick('q5',this,'🫠 Melting — surviving but need a win')">🫠 Melting<small>Surviving but need a win</small></button>
-        <button class="opt" onclick="pick('q5',this,'🌊 Riding waves — highs and lows but staying afloat')">🌊 Riding waves<small>Highs and lows, staying afloat</small></button>
-        <button class="opt" onclick="pick('q5',this,'🔋 Recharging — low battery but plugged in')">🔋 Recharging<small>Low battery but plugged in</small></button>
+        <button class="opt" onclick="pick('q5',this,'🌱 Planting seeds — building slow and steady')">🌱 Planting seeds<small>I'm in a building phase — working on things that don't have results yet, laying foundations others can't see. It's slow, sometimes invisible, but intentional. The harvest is coming.</small></button>
+        <button class="opt" onclick="pick('q5',this,'🚀 In orbit — everything is moving fast')">🚀 In orbit<small>Everything is firing at once and I'm keeping up. High energy, high output, loving the pace — but aware it can't last forever. Right now though? It's good.</small></button>
+        <button class="opt" onclick="pick('q5',this,'🛁 Soaking — recharging and reflecting')">🛁 Soaking<small>I'm in a deliberately slower mode — processing, reflecting, recovering from a sprint. Not checked out, just filling the tank back up. Give me time and I'll be back at full capacity.</small></button>
+        <button class="opt" onclick="pick('q5',this,'🫠 Melting — surviving but need a win')">🫠 Melting<small>Honestly? I'm at capacity and it shows. Not broken, but running on fumes. What I need most right now is one thing I can complete and feel good about — a small win to reset the momentum.</small></button>
+        <button class="opt" onclick="pick('q5',this,'🌊 Riding waves — highs and lows but staying afloat')">🌊 Riding waves<small>Variable. Some days are great, some days are hard, and I'm doing my best to stay upright through both. Resilient but not invincible — the waves are real.</small></button>
+        <button class="opt" onclick="pick('q5',this,'🔋 Recharging — low battery but plugged in')">🔋 Recharging<small>I know I'm low and I'm actively doing something about it. Not in crisis — just aware that I need to protect my energy right now. I'm plugged in, just waiting for the charge to kick in.</small></button>
       </div>
     </div>
 
@@ -580,8 +580,8 @@ body {
     <div class="q-card">
       <div class="q-num">06</div>
       <div class="q-question">🌈 If you could steal any superpower from a colleague right now, what would it be?</div>
-      <div class="q-hint">A skill, a quality, a vibe — anything goes</div>
-      <textarea class="txt" id="q6" placeholder="e.g. The ability to say no without feeling guilty…" oninput="updateProgress()"></textarea>
+      <div class="q-hint">Think about the version of yourself you're working towards — what's the one quality, skill or way of being that you most want to develop? It doesn't have to be something you're bad at. It can be something you're already growing but want more of. Name it, and if you can, name who in your team has it.</div>
+      <textarea class="txt" id="q6" placeholder="e.g. The ability to say no without guilt — I see how confidently some people protect their time and I want that. Still working on it." oninput="updateProgress()"></textarea>
     </div>
 
     <!-- Q7 -->
