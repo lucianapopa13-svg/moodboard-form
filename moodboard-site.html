@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FanDuel Casino Delivery — Moodboard 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   GLOBAL RESET & VARIABLES
+══════════════════════════════════════ */
+:root{
+  --navy:#001C55;--navy2:#00143D;--navy3:#002266;
+  --blue:#0078FF;--blue2:#0056B8;--blue3:#003580;
+  --yellow:#FFDC2E;--green:#2EFF9A;--red:#FF4757;--orange:#FF8C2E;--pink:#FF6BB5;
+  --white:#FFFFFF;--muted:#6B8CC4;--light:#B8C8E8;--card:#002266;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
+
+/* ══════════════════════════════════════
+   TOP NAV
+══════════════════════════════════════ */
+.top-nav{
+  background:var(--navy2);
+  border-bottom:3px solid var(--blue);
+  padding:0 40px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:200;
+}
+.top-nav-logo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1rem;font-weight:800;
+  letter-spacing:.04em;color:#6BB5FF;
+  text-transform:uppercase;
+  flex-shrink:0;
+}
+.top-nav-links{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.nav-btn{
+  background:none;
+  border:none;
+  padding:7px 14px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  cursor:pointer;
+  border-radius:6px;
+  transition:all .15s;
+  white-space:nowrap;
+}
+.nav-btn:hover{color:var(--white);background:rgba(255,255,255,.06);}
+.nav-btn.active{color:var(--yellow);background:rgba(255,220,46,.1);}
+
+/* ══════════════════════════════════════
+   PAGE SECTIONS
+══════════════════════════════════════ */
+.page-section{display:none;}
+.page-section.active{display:block;}
+
+/* ══════════════════════════════════════
+   GUIDE PAGE
+══════════════════════════════════════ */
+.guide-wrap{max-width:820px;margin:0 auto;padding:56px 40px 100px;}
+.guide-hero{margin-bottom:56px;}
+.guide-eyebrow{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.72rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:12px;
+}
+.guide-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:800;line-height:.9;
+  text-transform:uppercase;
+  letter-spacing:-.02em;margin-bottom:16px;
+}
+.guide-title em{color:var(--yellow);font-style:normal;display:block;}
+.guide-subtitle{
+  font-size:1.05rem;color:var(--light);
+  font-weight:300;line-height:1.65;
+  max-width:560px;
+}
+.guide-divider{
+  height:3px;
+  background:linear-gradient(90deg,var(--blue),transparent);
+  margin:48px 0;
+  border-radius:100px;
+}
+
+/* WHAT IS IT box */
+.what-box{
+  background:var(--navy2);
+  border:1.5px solid var(--blue2);
+  border-radius:16px;
+  padding:28px 32px;
+  margin-bottom:48px;
+}
+.what-box p{
+  font-size:.95rem;color:var(--light);
+  line-height:1.75;font-weight:300;
+}
+.what-box p strong{color:var(--white);font-weight:600;}
+
+/* PIECE CARDS */
+.pieces-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-bottom:48px;
+}
+.piece-card{
+  background:var(--navy3);
+  border:1.5px solid var(--blue2);
+  border-radius:14px;
+  padding:22px 20px;
+  position:relative;
+  overflow:hidden;
+}
+.piece-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:var(--piece-color,var(--blue));
+  border-radius:14px 14px 0 0;
+}
+.piece-icon{font-size:1.6rem;margin-bottom:10px;display:block;}
+.piece-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  margin-bottom:6px;
+}
+.piece-body{font-size:.8rem;color:var(--muted);line-height:1.55;font-weight:300;}
+
+/* STEPS */
+.steps-section{margin-bottom:48px;}
+.steps-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.7rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:8px;
+}
+.steps-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.8rem;font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+.step-row{
+  display:flex;align-items:flex-start;
+  gap:18px;padding:18px 0;
+  border-bottom:1px solid var(--blue3);
+}
+.step-row:last-child{border-bottom:none;}
+.step-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:2rem;font-weight:800;
+  color:var(--blue2);
+  line-height:1;flex-shrink:0;
+  width:36px;text-align:center;
+  margin-top:2px;
+}
+.step-content{}
+.step-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  color:var(--white);margin-bottom:4px;
+}
+.step-body{font-size:.84rem;color:var(--muted);line-height:1.6;font-weight:300;}
+.step-body strong{color:var(--light);}
+
+/* QUESTIONS TABLE */
+.q-table{width:100%;border-collapse:collapse;margin-bottom:48px;}
+.q-table thead tr{background:var(--navy2);}
+.q-table th{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.65rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);
+  padding:10px 14px;text-align:left;
+  border-bottom:2px solid var(--blue2);
+}
+.q-table td{
+  padding:12px 14px;vertical-align:top;
+  border-bottom:1px solid var(--blue3);
+  font-size:.82rem;line-height:1.5;
+}
+.q-table tr:nth-child(even) td{background:rgba(0,34,102,.4);}
+.q-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;color:var(--blue);
+}
+.q-question{color:var(--white);font-weight:500;}
+.q-reveals{color:var(--muted);}
+.q-why{color:var(--light);font-weight:300;}
+
+/* ANIMALS TABLE */
+.animals-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;margin-bottom:48px;
+}
+.animal-item{
+  background:var(--navy3);
+  border:1px solid var(--blue2);
+  border-radius:10px;
+  padding:14px;
+}
+.animal-emoji{font-size:1.6rem;display:block;margin-bottom:6px;}
+.animal-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.88rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  color:var(--yellow);margin-bottom:3px;
+}
+.animal-style{font-size:.72rem;color:var(--blue);font-weight:600;margin-bottom:4px;}
+.animal-desc{font-size:.72rem;color:var(--muted);line-height:1.4;font-weight:300;}
+
+/* AI SECTION */
+.ai-box{
+  background:rgba(139,76,155,.08);
+  border:1px solid rgba(139,76,155,.3);
+  border-left:4px solid #8B4C9B;
+  border-radius:14px;
+  padding:26px 28px;
+  margin-bottom:48px;
+}
+.ai-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.2rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  color:#C97FD8;margin-bottom:14px;
+}
+.ai-item{
+  display:flex;align-items:flex-start;
+  gap:10px;padding:8px 0;
+  border-bottom:1px solid rgba(139,76,155,.15);
+}
+.ai-item:last-child{border-bottom:none;}
+.ai-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:#8B4C9B;flex-shrink:0;
+  margin-top:6px;
+}
+.ai-item-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.82rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  color:#C97FD8;
+}
+.ai-item-body{font-size:.78rem;color:var(--light);line-height:1.5;font-weight:300;}
+
+/* PROMPTS */
+.prompts-section{margin-bottom:48px;}
+.prompt-card{
+  background:var(--navy3);
+  border:1.5px solid var(--blue2);
+  border-left:4px solid var(--blue);
+  border-radius:12px;
+  padding:18px 20px;
+  margin-bottom:10px;
+}
+.prompt-card:nth-child(even){border-left-color:var(--yellow);}
+.prompt-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.62rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:6px;
+}
+.prompt-card:nth-child(even) .prompt-label{color:var(--yellow);}
+.prompt-quote{
+  font-size:.84rem;color:var(--light);
+  line-height:1.6;font-style:italic;
+  margin-bottom:6px;
+}
+.prompt-result{font-size:.76rem;color:var(--muted);font-weight:300;line-height:1.45;}
+.prompt-result strong{color:var(--light);}
+
+/* TIPS BOX */
+.tips-box{
+  background:rgba(255,220,46,.06);
+  border:1px solid rgba(255,220,46,.2);
+  border-left:4px solid var(--yellow);
+  border-radius:12px;
+  padding:22px 24px;
+}
+.tips-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  color:var(--yellow);margin-bottom:14px;
+}
+.tip-row{
+  display:flex;align-items:flex-start;
+  gap:10px;margin-bottom:10px;
+  font-size:.82rem;color:var(--light);
+  line-height:1.5;font-weight:300;
+}
+.tip-row:last-child{margin-bottom:0;}
+.tip-arrow{color:var(--yellow);font-weight:800;flex-shrink:0;}
+
+/* ══════════════════════════════════════
+   MOODBOARDS PAGE  
+══════════════════════════════════════ */
+
+:root{--navy:#001C55;--navy2:#00143D;--navy3:#002266;--blue:#0078FF;--blue2:#0056B8;--yellow:#FFDC2E;--white:#FFFFFF;--muted:#6B8CC4;--light:#B8C8E8;--card:#002266;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
+.header{background:var(--navy2);border-bottom:3px solid var(--blue);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.fd-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.04em;color:#6BB5FF;text-transform:uppercase;}
+.count-badge{background:rgba(0,120,255,.15);border:1px solid rgba(0,120,255,.3);border-radius:100px;padding:6px 16px;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:600;color:var(--blue);}
+.main{max-width:1200px;margin:0 auto;padding:40px 40px 80px;}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--white);margin-bottom:6px;}
+.section-sub{font-size:.9rem;color:var(--muted);margin-bottom:32px;font-weight:300;}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;width:100%;}
+.tile{background:var(--card);border:1.5px solid var(--blue2);border-radius:16px;padding:20px 16px 16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;animation:fadeUp .4s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.tile:hover{border-color:var(--yellow);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4);}
+.tile::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+.tile:hover::before{transform:scaleX(1);}
+.tile-emoji{font-size:2rem;margin-bottom:12px;display:block;}
+.tile-animal{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;line-height:1.2;margin-bottom:5px;color:var(--yellow);}
+.tile-vibe{font-size:.68rem;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+.tile-hint{font-size:.62rem;color:var(--blue);margin-top:7px;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,20,61,.92);backdrop-filter:blur(12px);z-index:100;overflow-y:auto;padding:40px 16px 60px;}
+.overlay.open{display:block;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{max-width:700px;margin:0 auto;animation:slideUp .3s ease both;}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.modal-close{position:fixed;top:20px;right:20px;background:rgba(0,120,255,.15);border:1px solid rgba(0,120,255,.3);border-radius:100px;padding:9px 16px;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--white);cursor:pointer;z-index:101;}
+.guess-screen{background:var(--navy2);border-radius:24px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px var(--blue2);}
+.guess-hero{position:relative;padding:48px 40px 40px;text-align:center;overflow:hidden;}
+.guess-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(0,120,255,.2) 0%,transparent 65%);}
+.mystery-emoji{font-size:3.2rem;display:block;margin-bottom:16px;filter:grayscale(1);opacity:.3;position:relative;}
+.guess-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;position:relative;}
+.guess-animal{font-family:'Barlow Condensed',sans-serif;font-size:1.9rem;font-weight:800;line-height:1;color:var(--white);position:relative;margin-bottom:6px;text-transform:uppercase;}
+.guess-animal em{color:var(--yellow);font-style:normal;}
+.guess-vibe{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;position:relative;}
+.statement-wrap{padding:32px 40px 24px;}
+.statement-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.statement-label::after{content:'';flex:1;height:1px;background:rgba(0,120,255,.25);}
+.statement-text{font-size:.97rem;line-height:1.8;color:var(--light);font-style:italic;padding-left:22px;position:relative;font-weight:300;}
+.statement-text::before{content:'"';position:absolute;left:0;top:-6px;font-family:'Barlow Condensed',sans-serif;font-size:3rem;color:var(--blue);opacity:.4;line-height:1;font-weight:800;}
+.guess-actions{padding:0 40px 36px;display:flex;justify-content:center;}
+.reveal-btn{background:var(--yellow);color:var(--navy);border:none;border-radius:8px;padding:18px 52px;font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 30px rgba(255,220,46,.3);}
+.reveal-btn:hover{transform:translateY(-2px);}
+.reveal-screen{display:none;background:var(--navy2);border-radius:24px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px var(--blue2);animation:revealPop .5s cubic-bezier(.175,.885,.32,1.275) both;}
+@keyframes revealPop{from{transform:scale(.88);opacity:0}to{transform:scale(1);opacity:1}}
+.m-hero{position:relative;height:180px;background:var(--navy2);overflow:hidden;display:flex;align-items:flex-end;padding:22px 30px;}
+.m-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 100%,rgba(255,220,46,.2) 0%,transparent 60%),radial-gradient(ellipse 50% 70% at 80% 40%,rgba(0,120,255,.15) 0%,transparent 55%);}
+.m-avatar{font-size:3.4rem;position:absolute;right:28px;bottom:18px;}
+.m-name{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:800;line-height:1;color:var(--white);position:relative;z-index:1;letter-spacing:-.01em;text-transform:uppercase;}
+.m-sub{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:600;color:var(--muted);margin-top:5px;letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:1;}
+.music-bar{background:var(--navy3);border-top:1px solid var(--blue2);}
+.music-searching{display:flex;align-items:center;gap:14px;padding:13px 26px;}
+.spin-disk{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:conic-gradient(#003080 0deg,#001C55 60deg,#003580 120deg,#001040 180deg,#003080 240deg,#001C55 300deg);border:2px solid var(--blue2);animation:spin 6s linear infinite;position:relative;}
+.spin-disk::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:7px;height:7px;border-radius:50%;background:var(--navy2);border:1.5px solid var(--blue2);}
+@keyframes spin{to{transform:rotate(360deg)}}
+.s-info{flex:1;}.s-title{font-weight:700;font-size:.86rem;color:var(--blue);}.s-status{font-size:.68rem;color:var(--muted);margin-top:2px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.06em;}
+.eq-bars{display:flex;align-items:flex-end;gap:3px;height:18px;}
+.eq{width:3px;background:var(--blue);border-radius:2px;animation:bounce var(--d,.8s) ease-in-out infinite alternate;}
+@keyframes bounce{from{height:3px}to{height:var(--h,14px)}}
+.music-player{display:none;padding:13px 26px 16px;}
+.player-top{display:flex;align-items:center;gap:13px;margin-bottom:9px;}
+.album-art{width:50px;height:50px;border-radius:6px;flex-shrink:0;object-fit:cover;}
+.track-info{flex:1;min-width:0;}.track-name{font-weight:700;font-size:.86rem;color:var(--blue);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.track-artist{font-size:.7rem;color:var(--muted);margin-top:2px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.06em;}
+.play-btn{background:var(--blue);border:none;border-radius:50%;width:42px;height:42px;cursor:pointer;font-size:1rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--white);}
+.progress-track{background:var(--navy3);border-radius:4px;height:3px;cursor:pointer;}.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--yellow));width:0%;transition:width .3s linear;border-radius:4px;}
+.time-row{display:flex;justify-content:space-between;margin-top:4px;}.time-label{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;color:var(--muted);}.spotify-open{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;color:var(--blue);text-decoration:none;}
+.music-notfound{display:none;padding:11px 26px;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;color:var(--muted);}
+.music-notfound a{color:var(--blue);text-decoration:none;}
+.m-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--blue2);}
+.m-cell{padding:14px 18px;border-right:1px solid var(--blue2);border-bottom:1px solid var(--blue2);position:relative;overflow:hidden;}
+.m-cell:nth-child(even){border-right:none;}
+.m-cell-label{font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.m-cell-val{font-size:.84rem;font-weight:500;line-height:1.4;color:var(--white);}
+.m-cell-val.yellow{color:var(--yellow);}.m-cell-val.blue{color:var(--blue);}
+.m-cell::after{content:attr(data-emoji);position:absolute;bottom:4px;right:8px;font-size:1.3rem;opacity:.06;pointer-events:none;}
+.m-footer{padding:13px 24px;background:rgba(255,220,46,.05);border-top:1px solid var(--blue2);font-size:.8rem;color:var(--muted);display:flex;gap:10px;}
+.m-footer strong{color:var(--yellow);}
+.ai-statement{padding:18px 24px;background:rgba(0,120,255,.07);border-top:1px solid rgba(0,120,255,.2);}
+.ai-label{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+.ai-text{font-size:.86rem;line-height:1.75;color:var(--light);font-style:italic;font-weight:300;}
+
+/* Override header in activity section */
+.moodboards-page .header{display:none;}
+.moodboards-page .main{padding:40px !important;width:100% !important;max-width:100% !important;margin:0 !important;}
+
+/* ══════════════════════════════════════
+   HEATMAP PAGE
+══════════════════════════════════════ */
+
+:root{
+  --navy:#001C55;--navy2:#00143D;--navy3:#002266;
+  --blue:#0078FF;--blue2:#0056B8;--blue3:#003580;
+  --yellow:#FFDC2E;--green:#2EFF9A;--red:#FF4757;--orange:#FF8C2E;--pink:#FF6BB5;
+  --white:#FFFFFF;--muted:#6B8CC4;--light:#B8C8E8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
+
+.header{background:var(--navy2);border-bottom:3px solid var(--blue);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.fd-logo{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.04em;color:#6BB5FF;text-transform:uppercase;}
+.n-badge{background:rgba(0,120,255,.15);border:1px solid rgba(0,120,255,.3);border-radius:100px;padding:4px 14px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;color:var(--blue);}
+
+.hero{padding:40px 40px 32px;border-bottom:1px solid var(--blue3);background:var(--navy2);}
+.hero-inner{max-width:1100px;margin:0 auto;}
+.hero-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;line-height:.95;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:12px;}
+.hero-title em{color:var(--yellow);font-style:normal;}
+.hero-sub{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.65;max-width:620px;}
+.hero-sub strong{color:var(--white);}
+
+.signal-row{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:24px 40px;}
+.signal{background:var(--navy3);border:1.5px solid var(--blue2);border-radius:12px;padding:18px 16px;position:relative;overflow:hidden;}
+.signal::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sig-color,var(--blue));border-radius:12px 12px 0 0;}
+.signal-icon{font-size:1.3rem;margin-bottom:7px;display:block;}
+.signal-label{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.signal-val{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;line-height:1;margin-bottom:4px;}
+.signal-desc{font-size:.68rem;color:var(--muted);font-weight:300;line-height:1.4;}
+
+.main{max-width:1100px;margin:0 auto;padding:0 40px 80px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:720px){.main{grid-template-columns:1fr;}}
+.card{background:var(--navy3);border:1.5px solid var(--blue2);border-radius:16px;padding:22px;animation:up .5s ease both;}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card.full{grid-column:1/-1;}
+.card-label{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;}
+.card-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin-bottom:4px;}
+.card-body{font-size:.78rem;color:var(--muted);font-weight:300;line-height:1.55;margin-bottom:16px;}
+
+.style-list{display:flex;flex-direction:column;gap:9px;}
+.style-row{display:flex;align-items:center;gap:10px;}
+.style-emoji{font-size:1.3rem;width:26px;text-align:center;flex-shrink:0;}
+.style-label{font-size:.78rem;color:var(--light);flex:1;line-height:1.3;}
+.style-label small{display:block;font-size:.66rem;color:var(--muted);margin-top:1px;}
+.style-track{width:70px;background:var(--blue3);border-radius:100px;height:5px;flex-shrink:0;overflow:hidden;}
+.style-fill{height:100%;border-radius:100px;}
+.style-n{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;min-width:20px;text-align:right;color:var(--muted);}
+
+.energy-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
+.e-block{border-radius:9px;padding:12px 10px;text-align:center;}
+.e-block.waves{background:rgba(0,120,255,.1);border:1px solid rgba(0,120,255,.25);}
+.e-block.seeds{background:rgba(46,255,154,.08);border:1px solid rgba(46,255,154,.2);}
+.e-block.orbit{background:rgba(255,220,46,.08);border:1px solid rgba(255,220,46,.2);}
+.e-block.soak{background:rgba(107,140,196,.08);border:1px solid rgba(107,140,196,.2);}
+.e-block.melt{background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.2);}
+.e-num{font-family:'Barlow Condensed',sans-serif;font-size:1.9rem;font-weight:800;line-height:1;}
+.e-block.waves .e-num{color:var(--blue);}
+.e-block.seeds .e-num{color:var(--green);}
+.e-block.orbit .e-num{color:var(--yellow);}
+.e-block.soak .e-num{color:var(--muted);}
+.e-block.melt .e-num{color:var(--red);}
+.e-label{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;}
+.e-block.waves .e-label{color:rgba(0,120,255,.8);}
+.e-block.seeds .e-label{color:rgba(46,255,154,.8);}
+.e-block.orbit .e-label{color:rgba(255,220,46,.8);}
+.e-block.soak .e-label{color:rgba(107,140,196,.8);}
+.e-block.melt .e-label{color:rgba(255,71,87,.8);}
+
+.hbar{display:flex;flex-direction:column;gap:10px;}
+.hbar-row{display:flex;align-items:center;gap:9px;}
+.hbar-label{font-size:.78rem;color:var(--light);flex:1;line-height:1.3;}
+.hbar-label small{display:block;font-size:.66rem;color:var(--muted);font-weight:300;margin-top:1px;}
+.hbar-track{width:90px;background:var(--blue3);border-radius:100px;height:5px;flex-shrink:0;overflow:hidden;}
+.hbar-fill{height:100%;border-radius:100px;}
+.hbar-n{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;min-width:26px;text-align:right;color:var(--muted);}
+
+.support-list{display:flex;flex-direction:column;gap:8px;}
+.support-item{background:var(--navy2);border:1px solid var(--blue2);border-radius:9px;padding:11px 14px;}
+.support-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;}
+.support-label{font-size:.82rem;font-weight:600;color:var(--white);}
+.support-n{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:800;}
+.support-track{background:var(--blue3);border-radius:100px;height:4px;overflow:hidden;margin-bottom:4px;}
+.support-fill{height:100%;border-radius:100px;}
+.support-desc{font-size:.7rem;color:var(--muted);font-weight:300;line-height:1.4;}
+
+.insight{border-radius:10px;padding:13px 15px;margin-bottom:10px;}
+.insight:last-child{margin-bottom:0;}
+.insight.green{background:rgba(46,255,154,.07);border:1px solid rgba(46,255,154,.2);}
+.insight.orange{background:rgba(255,140,46,.07);border:1px solid rgba(255,140,46,.2);}
+.insight.blue{background:rgba(0,120,255,.07);border:1px solid rgba(0,120,255,.2);}
+.insight.yellow{background:rgba(255,220,46,.07);border:1px solid rgba(255,220,46,.2);}
+.insight.red{background:rgba(255,71,87,.07);border:1px solid rgba(255,71,87,.2);}
+.insight h4{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;}
+.insight.green h4{color:var(--green);}
+.insight.orange h4{color:var(--orange);}
+.insight.blue h4{color:var(--blue);}
+.insight.yellow h4{color:var(--yellow);}
+.insight.red h4{color:#ff8a94;}
+.insight p{font-size:.76rem;color:var(--light);line-height:1.65;font-weight:300;}
+.insight strong{color:var(--white);font-weight:600;}
+
+.q-card{background:var(--navy2);border:1px solid var(--blue2);border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+.q-card:last-child{margin-bottom:0;}
+.q-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:5px;}
+.q-text{font-size:.82rem;color:var(--light);line-height:1.55;font-style:italic;}
+
+.we-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.we-card{border-radius:10px;padding:14px 16px;}
+.we-card.have{background:rgba(46,255,154,.07);border:1px solid rgba(46,255,154,.2);}
+.we-card.want{background:rgba(255,140,46,.07);border:1px solid rgba(255,140,46,.2);}
+.we-card-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;}
+.we-card.have .we-card-label{color:var(--green);}
+.we-card.want .we-card-label{color:var(--orange);}
+.we-item{font-size:.78rem;color:var(--light);line-height:1.5;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.we-item:last-child{border-bottom:none;}
+.we-item small{display:block;font-size:.66rem;color:var(--muted);margin-top:1px;}
+
+.summary-wrap{background:linear-gradient(135deg,var(--navy2),var(--navy3));border:2px solid var(--blue);border-radius:16px;padding:26px 30px;}
+.summary-title{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.summary-p{font-size:.86rem;color:var(--light);line-height:1.75;font-weight:300;margin-bottom:10px;}
+.summary-p:last-child{margin-bottom:0;}
+.summary-p strong{color:var(--white);font-weight:600;}
+.summary-p em{color:var(--yellow);font-style:normal;font-weight:600;}
+
+.conv-list{display:flex;flex-direction:column;gap:10px;}
+.conv{border-radius:10px;padding:15px 17px;border-left:4px solid;}
+.conv.c1{background:rgba(255,220,46,.05);border-color:var(--yellow);}
+.conv.c2{background:rgba(0,120,255,.05);border-color:var(--blue);}
+.conv.c3{background:rgba(46,255,154,.05);border-color:var(--green);}
+.conv.c4{background:rgba(255,140,46,.05);border-color:var(--orange);}
+.conv-title{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;}
+.conv.c1 .conv-title{color:var(--yellow);}
+.conv.c2 .conv-title{color:var(--blue);}
+.conv.c3 .conv-title{color:var(--green);}
+.conv.c4 .conv-title{color:var(--orange);}
+.conv-body{font-size:.78rem;color:var(--light);line-height:1.65;font-weight:300;}
+.conv-body strong{color:var(--white);font-weight:600;}
+.conv-q{font-size:.76rem;color:var(--muted);font-style:italic;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.08);}
+.heatmap-page .header{display:none;}
+
+/* ══════════════════════════════════════
+   OVERLAY (shared)
+══════════════════════════════════════ */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,20,61,.92);backdrop-filter:blur(12px);z-index:300;overflow-y:auto;padding:40px 16px 60px;}
+.overlay.open{display:block;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{max-width:700px;margin:0 auto;animation:slideUp .3s ease both;}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.modal-close{position:fixed;top:20px;right:20px;background:rgba(0,120,255,.15);border:1px solid rgba(0,120,255,.3);border-radius:100px;padding:9px 16px;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--white);cursor:pointer;z-index:301;}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOP NAV ═══ -->
+<nav class="top-nav">
+  <div class="top-nav-logo">FanDuel Casino Delivery · Moodboard 2026</div>
+  <div class="top-nav-links">
+    <button class="nav-btn active" onclick="showPage('guide')">📋 Activity Guide</button>
+    <button class="nav-btn" onclick="showPage('moodboards')">🐾 Moodboards</button>
+    <button class="nav-btn" onclick="showPage('all')">📖 All Answers</button>
+    <button class="nav-btn" onclick="showPage('heatmap')">🌡️ Team Heatmap</button>
+  </div>
+</nav>
+
+<!-- ═══ OVERLAY (shared between pages) ═══ -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <button class="modal-close" onclick="closeOverlay()">✕ Close</button>
+  <div class="modal" id="modal"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PAGE 1 — ACTIVITY GUIDE
+════════════════════════════════════════ -->
+<div class="page-section active" id="page-guide">
+<div class="guide-wrap">
+
+  <div class="guide-hero">
+    <div class="guide-eyebrow">FanDuel Casino Delivery Team · Class of 2026</div>
+    <div class="guide-title">Team<br><em>Moodboard</em></div>
+    <p class="guide-subtitle">A team activity where everyone fills in a fun questionnaire, and the answers are revealed one by one during the session. The team guesses who each statement belongs to — then hits reveal.</p>
+  </div>
+
+  <div class="what-box">
+    <p><strong>What is it?</strong> Eight questions about how you work, what animal you are in focus mode, your power anthem, and a few honest check-ins. During the session, the team reads AI-generated mystery statements and guesses who is who before the big reveal. A team heatmap then shows collective patterns to spark a real conversation.</p>
+  </div>
+
+  <div class="guide-divider"></div>
+
+  <div class="pieces-grid">
+    <div class="piece-card" style="--piece-color:var(--blue)">
+      <span class="piece-icon">📋</span>
+      <div class="piece-title">The Form</div>
+      <div class="piece-body">Branded FanDuel webpage on GitHub. Anyone with the link fills it in on any device in ~3 minutes.</div>
+    </div>
+    <div class="piece-card" style="--piece-color:#007A5E">
+      <span class="piece-icon">💬</span>
+      <div class="piece-title">Slack</div>
+      <div class="piece-body">Every submission auto-posts to a private Slack channel as a formatted message. No manual work.</div>
+    </div>
+    <div class="piece-card" style="--piece-color:#8B4C9B">
+      <span class="piece-icon">🤖</span>
+      <div class="piece-title">Claude AI</div>
+      <div class="piece-body">Reads Slack, writes personalised statements per person, rebuilds the HTML files on demand.</div>
+    </div>
+    <div class="piece-card" style="--piece-color:var(--yellow)">
+      <span class="piece-icon">🎭</span>
+      <div class="piece-title">This Site</div>
+      <div class="piece-body">Four pages in one file: guide, moodboard activity, all answers, and team heatmap. Fully offline.</div>
+    </div>
+  </div>
+
+  <div class="guide-divider"></div>
+
+  <div class="steps-section">
+    <div class="steps-label">On the day</div>
+    <div class="steps-title">How to Run It</div>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Open the Moodboards tab</div>
+        <div class="step-body">Click <strong>🐾 Moodboards</strong> in the nav above. You'll see 13 tiles — each showing only an animal type and vibe. No names yet.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Click a tile and read the AI statement aloud</div>
+        <div class="step-body">The mystery screen shows a paragraph that reveals how this person works — without naming them. The team guesses who it is.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Hit Reveal!</div>
+        <div class="step-body">Press the big yellow button. The name appears and their power anthem is shown — <strong>play it on Spotify or YouTube for the full effect.</strong></div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Browse All Answers</div>
+        <div class="step-body">After the reveals, open the <strong>📖 All Answers</strong> tab to see everyone's full moodboard side by side.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Open the Team Heatmap</div>
+        <div class="step-body">Click <strong>🌡️ Team Heatmap</strong>. Use the four conversation starters at the bottom to close the session with a real team discussion.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="guide-divider"></div>
+
+  <div class="steps-label">The questionnaire</div>
+  <div class="steps-title" style="margin-bottom:20px;">What We Asked — and Why</div>
+  <table class="q-table">
+    <thead><tr><th>#</th><th>Question</th><th>What it reveals</th><th>Why this question?</th></tr></thead>
+    <tbody>
+      <tr><td class="q-num">01</td><td class="q-question">🐾 Which animal are you in deep focus mode?</td><td class="q-reveals">Working style</td><td class="q-why">Reveals how someone structures energy and attention — analyst, executor, connector, driver.</td></tr>
+      <tr><td class="q-num">02</td><td class="q-question">🎵 What song plays when you're absolutely killing it?</td><td class="q-reveals">Self-image at peak</td><td class="q-why">The anthem someone chooses says more about how they see themselves than any CV.</td></tr>
+      <tr><td class="q-num">03</td><td class="q-question">🍕 You are a pizza topping. Which one and why?</td><td class="q-reveals">Collaboration style</td><td class="q-why">Are you the reliable base, the bold flavour, or the subtle ingredient nobody notices until it's gone?</td></tr>
+      <tr><td class="q-num">04</td><td class="q-question">🆘 When stressed, what do teammates NOT know to do?</td><td class="q-reveals">Emotional operating manual</td><td class="q-why">The most practically useful answer in the whole form — becomes the official Support Protocol.</td></tr>
+      <tr><td class="q-num">05</td><td class="q-question">🌡️ Rate your current season of work-life on the Vibe Scale™</td><td class="q-reveals">Real energy &amp; bandwidth</td><td class="q-why">Not how someone is performing — how they actually feel right now.</td></tr>
+      <tr><td class="q-num">06</td><td class="q-question">🌈 If you could steal any superpower from a colleague?</td><td class="q-reveals">Growth edge</td><td class="q-why">What someone covets tells you exactly where they feel the gap between who they are and who they want to be.</td></tr>
+      <tr><td class="q-num">07</td><td class="q-question">🃏 What's your criminally underrated workplace superpower?</td><td class="q-reveals">Hidden strengths</td><td class="q-why">What people take for granted in themselves is often exactly what the team values most.</td></tr>
+      <tr><td class="q-num">08</td><td class="q-question">🎭 People would be shocked to learn I…</td><td class="q-reveals">Authenticity</td><td class="q-why">A small window into the real person behind the professional one.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="steps-label">The 9 animals</div>
+  <div class="steps-title" style="margin-bottom:20px;">What Your Animal Says</div>
+  <div class="animals-grid">
+    <div class="animal-item"><span class="animal-emoji">🦙</span><div class="animal-name">The Alpaca</div><div class="animal-style">Analyst</div><div class="animal-desc">High standards, quiet observer, deceptively approachable</div></div>
+    <div class="animal-item"><span class="animal-emoji">🦦</span><div class="animal-name">The Otter</div><div class="animal-style">Energiser</div><div class="animal-desc">Suspiciously cheerful, gets things done while having the best time</div></div>
+    <div class="animal-item"><span class="animal-emoji">🐓</span><div class="animal-name">The Rooster</div><div class="animal-style">Driver</div><div class="animal-desc">First in, sets the pace, brings momentum whether you want it or not</div></div>
+    <div class="animal-item"><span class="animal-emoji">🦔</span><div class="animal-name">The Hedgehog</div><div class="animal-style">Specialist</div><div class="animal-desc">Quiet, reliable, needs uninterrupted focus — don't underestimate</div></div>
+    <div class="animal-item"><span class="animal-emoji">🦆</span><div class="animal-name">The Duck</div><div class="animal-style">Executor</div><div class="animal-desc">Looks calm on the surface, absolutely sprinting underneath</div></div>
+    <div class="animal-item"><span class="animal-emoji">🐧</span><div class="animal-name">The Penguin</div><div class="animal-style">Professional</div><div class="animal-desc">Formal on the outside, considerably more range underneath</div></div>
+    <div class="animal-item"><span class="animal-emoji">🦘</span><div class="animal-name">The Kangaroo</div><div class="animal-style">Supporter</div><div class="animal-desc">Carries everyone, somehow still bouncing</div></div>
+    <div class="animal-item"><span class="animal-emoji">🐙</span><div class="animal-name">The Octopus</div><div class="animal-style">Multitasker</div><div class="animal-desc">Eight things at once, all of them somehow working</div></div>
+    <div class="animal-item"><span class="animal-emoji">🦩</span><div class="animal-name">The Flamingo</div><div class="animal-style">Performer</div><div class="animal-desc">Effortlessly stylish, makes everything look easy</div></div>
+  </div>
+
+  <div class="guide-divider"></div>
+
+  <div class="ai-box">
+    <div class="ai-title">🤖 How Claude AI Built This — Start to Finish</div>
+    <div class="ai-item"><div class="ai-dot"></div><div><div class="ai-item-title">Designed the activity concept</div><div class="ai-item-body">The 8 questions, the 9 animals and their meanings, the reveal flow and the heatmap insights framework were all conceived through conversation.</div></div></div>
+    <div class="ai-item"><div class="ai-dot"></div><div><div class="ai-item-title">Built the branded HTML form</div><div class="ai-item-body">Fully styled in FanDuel colours with animal picker cards, dropdown selectors, progress bar, validation and success screen.</div></div></div>
+    <div class="ai-item"><div class="ai-dot"></div><div><div class="ai-item-title">Solved the integration problem</div><div class="ai-item-body">After hitting blocks with Power Automate, SharePoint REST API, Microsoft Forms API, Confluence API and Google Sheets (all blocked by FanDuel IT), identified Slack Workflow Builder webhooks as the solution.</div></div></div>
+    <div class="ai-item"><div class="ai-dot"></div><div><div class="ai-item-title">Wrote the AI statements</div><div class="ai-item-body">For each team member, read their Slack submission and wrote a psychological analysis — no names, no answers given away, just what the combination of choices reveals about how someone operates.</div></div></div>
+    <div class="ai-item"><div class="ai-dot"></div><div><div class="ai-item-title">Built the activity dashboard, heatmap and this site</div><div class="ai-item-body">All four pages, the reveal flow, the music search, the team insights — rebuilt iteratively as the brief evolved across the day.</div></div></div>
+    <div class="ai-item"><div class="ai-dot"></div><div><div class="ai-item-title">Wrote this document</div><div class="ai-item-body">Yes, including this sentence. The human contribution: the idea, the questions to tweak, and a lot of patience navigating FanDuel IT restrictions.</div></div></div>
+  </div>
+
+  <div class="steps-label">The prompts that shaped it</div>
+  <div class="steps-title prompts-section" style="margin-bottom:20px;">Key Conversations with Claude</div>
+  <div class="prompts-section">
+    <div class="prompt-card">
+      <div class="prompt-label">The spark</div>
+      <div class="prompt-quote">"We want to do a team activity where I ask in advance some things from my colleagues and then present them at the activity — something like an employee moodboard that defines them."</div>
+      <div class="prompt-result"><strong>Result:</strong> The entire concept — 8 questions, 9 animals, the reveal flow — designed from this single message.</div>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-label">Going FanDuel-only</div>
+      <div class="prompt-quote">"I want only FanDuel tools — nothing out on the internet. And at the end I want a heatmap page that tells us something about the entire team."</div>
+      <div class="prompt-result"><strong>Result:</strong> Redirected the entire architecture. Claude spent the next phase navigating every IT block until finding the Slack webhook solution.</div>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-label">The heatmap direction</div>
+      <div class="prompt-quote">"I'd love it a bit more dashboardy and without picking on individuals — as this is something we'll do when we're all in the same room."</div>
+      <div class="prompt-result"><strong>Result:</strong> Rebuilt the heatmap as aggregate-only, first-person plural, with conversation starters instead of individual analysis.</div>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-label">The statements</div>
+      <div class="prompt-quote">"The statements are pretty much a copy paste of their entry — I'd like your analysis on it. No genders. No answers revealed. Just the meaning behind their answers."</div>
+      <div class="prompt-result"><strong>Result:</strong> All 13 statements rewritten as psychological reads — what the combination of choices reveals, not what the choices were.</div>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-label">The hidden superpower</div>
+      <div class="prompt-quote">"What would be my hidden superpower?"</div>
+      <div class="prompt-result"><strong>Result:</strong> "Knowing exactly what you want before the words for it arrive." — which then became part of Lucy's own moodboard entry.</div>
+    </div>
+  </div>
+
+  <div class="guide-divider"></div>
+
+  <div class="tips-box">
+    <div class="tips-title">Tips for Running the Session</div>
+    <div class="tip-row"><span class="tip-arrow">→</span><span>Give the team 3–5 days to fill in the form before the session.</span></div>
+    <div class="tip-row"><span class="tip-arrow">→</span><span>Keep the AI statements a mystery — don't share them in advance.</span></div>
+    <div class="tip-row"><span class="tip-arrow">→</span><span>Use the heatmap after the reveals, not before — it lands better when people already know each other's answers.</span></div>
+    <div class="tip-row"><span class="tip-arrow">→</span><span>Play the power anthem on Spotify or YouTube for the full effect on reveal.</span></div>
+    <div class="tip-row"><span class="tip-arrow">→</span><span>The whole session runs in 60–90 minutes for a team of 13.</span></div>
+    <div class="tip-row"><span class="tip-arrow">→</span><span>As more people submit, open Claude and say: "Read the moodboard-responses Slack channel and rebuild the dashboards." That's it.</span></div>
+  </div>
+
+</div>
+</div><!-- end guide page -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE 2 — MOODBOARDS ACTIVITY
+════════════════════════════════════════ -->
+<div class="page-section" id="page-moodboards" style="width:100%;">
+<div class="moodboards-page" style="width:100%;">
+  <div style="padding:40px;width:100%;">
+    <div class="section-title">Team Moodboard 2026</div>
+    <div class="section-sub">Click a card to read the AI statement — guess who it is, then reveal 🎉</div>
+    <div class="tiles" id="tilesEl"></div>
+  </div>
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PAGE 3 — ALL ANSWERS
+════════════════════════════════════════ -->
+<div class="page-section" id="page-all">
+<div style="max-width:1100px;margin:0 auto;padding:40px 40px 80px;">
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--white);margin-bottom:6px;">All Moodboards</div>
+  <div style="font-size:.9rem;color:var(--muted);margin-bottom:36px;font-weight:300;">Everyone's answers — side by side. Use this after the reveals.</div>
+  <div id="allAnswersGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;"></div>
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PAGE 4 — HEATMAP
+════════════════════════════════════════ -->
+<div class="page-section" id="page-heatmap">
+<div class="heatmap-page">
+<div class="n-badge">15 people · May 2026</div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Team Activity · Moodboard 2026</div>
+    <div class="hero-title">Who<br><em>We Are</em></div>
+    <p class="hero-sub">This is a mirror, not a report. Everything on this page comes from what <strong>we said about ourselves</strong> — the patterns, the strengths, the things we want more of. No right answers. Just a snapshot of who we are right now — at least the parts we were ready to share.</p>
+  </div>
+</div>
+
+<div class="signal-row">
+  <div class="signal" style="--sig-color:var(--green)">
+    <span class="signal-icon">💪</span>
+    <div class="signal-label">Our Backbone</div>
+    <div class="signal-val" style="color:var(--green)">Strong</div>
+    <div class="signal-desc">Discipline, calm under pressure and attention to detail — all present and underused</div>
+  </div>
+  <div class="signal" style="--sig-color:var(--yellow)">
+    <span class="signal-icon">⚡</span>
+    <div class="signal-label">Our Energy</div>
+    <div class="signal-val" style="color:var(--yellow)">Stable</div>
+    <div class="signal-desc">Most of us are managing well — one person needs a win right now</div>
+  </div>
+  <div class="signal" style="--sig-color:var(--orange)">
+    <span class="signal-icon">🗣️</span>
+    <div class="signal-label">Our Voice</div>
+    <div class="signal-val" style="color:var(--orange)">Growing</div>
+    <div class="signal-desc">5 of us want more confidence to speak up and be direct — that's a pattern worth naming</div>
+  </div>
+  <div class="signal" style="--sig-color:var(--blue)">
+    <span class="signal-icon">🧠</span>
+    <div class="signal-label">Our Self-Awareness</div>
+    <div class="signal-val" style="color:var(--blue)">High</div>
+    <div class="signal-desc">People took the time to reflect and share — that's already something</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- WORKING STYLES -->
+  <div class="card">
+    <div class="card-label">How We Work</div>
+    <div class="card-title">The Animals in the Room</div>
+    <div class="card-body">Six different working styles across 15 people — some of us well-established, some still finding their footing. Each style is a genuine asset, and each one needs something different to do its best work.</div>
+    <div class="style-list">
+      <div class="style-row">
+        <div class="style-emoji">🦙</div>
+        <div class="style-label">Analytical & deliberate<small>High standards, process before acting, quiet observers</small></div>
+        <div class="style-track"><div class="style-fill" style="width:100%;background:var(--yellow)"></div></div>
+        <div class="style-n" style="color:var(--yellow)">6</div>
+      </div>
+      <div class="style-row">
+        <div class="style-emoji">🦆</div>
+        <div class="style-label">Composed executors<small>Calm surface, significant effort underneath</small></div>
+        <div class="style-track"><div class="style-fill" style="width:80%;background:var(--blue)"></div></div>
+        <div class="style-n" style="color:var(--blue)">4</div>
+      </div>
+      <div class="style-row">
+        <div class="style-emoji">🦔</div>
+        <div class="style-label">Meticulous specialists<small>Quiet, reliable, need uninterrupted focus to deliver</small></div>
+        <div class="style-track"><div class="style-fill" style="width:40%;background:var(--muted)"></div></div>
+        <div class="style-n" style="color:var(--muted)">2</div>
+      </div>
+      <div class="style-row">
+        <div class="style-emoji">🦦</div>
+        <div class="style-label">High-energy driver<small>Social, momentum-led, turns discussion into action</small></div>
+        <div class="style-track"><div class="style-fill" style="width:20%;background:var(--green)"></div></div>
+        <div class="style-n" style="color:var(--green)">1</div>
+      </div>
+      <div class="style-row">
+        <div class="style-emoji">🐙</div>
+        <div class="style-label">Parallel processor<small>Holds complexity and people together simultaneously</small></div>
+        <div class="style-track"><div class="style-fill" style="width:20%;background:var(--pink)"></div></div>
+        <div class="style-n" style="color:var(--pink)">1</div>
+      </div>
+      <div class="style-row">
+        <div class="style-emoji">🦩</div>
+        <div class="style-label">Systems thinker<small>Converts ambiguity into structured calm</small></div>
+        <div class="style-track"><div class="style-fill" style="width:20%;background:var(--muted)"></div></div>
+        <div class="style-n" style="color:var(--muted)">1</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENERGY -->
+  <div class="card">
+    <div class="card-label">Where We Are Right Now</div>
+    <div class="card-title">Our Energy Right Now</div>
+    <div class="card-body">Not a performance score — just where each of us actually is. The spread is healthy. And one of us needs the team's support right now.</div>
+    <div class="energy-strip">
+      <div class="e-block waves"><div class="e-num">6</div><div class="e-label">Waves</div></div>
+      <div class="e-block seeds"><div class="e-num">4</div><div class="e-label">Seeds</div></div>
+      <div class="e-block orbit"><div class="e-num">3</div><div class="e-label">Orbit</div></div>
+      <div class="e-block soak"><div class="e-num">1</div><div class="e-label">Soaking</div></div>
+    </div>
+    <div style="background:rgba(255,71,87,.07);border:1px solid rgba(255,71,87,.2);border-radius:9px;padding:11px 14px;margin-bottom:10px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ff8a94;margin-bottom:3px;">One of us is melting</div>
+      <div style="font-size:.72rem;color:var(--light);line-height:1.5;font-weight:300;">Someone on the team is at capacity and needs a visible win. That's worth acknowledging together — and worth acting on as a team, not just as a manager.</div>
+    </div>
+    <div class="insight blue">
+      <h4>💡 What this means for us</h4>
+      <p>We're mostly managing well — not flying, but not breaking either. <strong>We can do what we're doing. The question is whether we have room to do more.</strong> Probably not without something giving.</p>
+    </div>
+  </div>
+
+  <!-- WHAT WE HAVE vs WANT -->
+  <div class="card full">
+    <div class="card-label">Strengths & Growth</div>
+    <div class="card-title">What We Bring — and What We Want More Of</div>
+    <div class="card-body">The hidden superpowers are what we take for granted in ourselves. The growth edges are what we'd steal from each other if we could. Together they show us where we are and where we're heading.</div>
+    <div class="we-grid">
+      <div class="we-card have">
+        <div class="we-card-label">🃏 What we already have</div>
+        <div class="we-item">🗂️ Structural discipline<small>Organisation, documentation, tracking — multiple people</small></div>
+        <div class="we-item">🧘 Calm under pressure<small>Composure that stabilises the room when things go wrong</small></div>
+        <div class="we-item">⚡ Chaos-to-structure conversion<small>Turning ambiguous situations into clear decisions</small></div>
+        <div class="we-item">🔍 Error detection<small>Catching what nobody else notices — a rare delivery asset</small></div>
+        <div class="we-item">🛡️ Risk obsession<small>Instinctive risk assessment on any plan or task</small></div>
+        <div class="we-item">🤝 Human connective tissue<small>Reducing friction, building trust, making collaboration work</small></div>
+        <div class="we-item">🔧 Technical fluency<small>Software understanding that accelerates diagnosis</small></div>
+      </div>
+      <div class="we-card want">
+        <div class="we-card-label">🌈 What we want more of</div>
+        <div class="we-item">💬 Confident communication<small>Stakeholder comms, leading with authority, being direct — 5 people</small></div>
+        <div class="we-item">🧘 Calm & composure<small>Accepting what can't be controlled — 2 people</small></div>
+        <div class="we-item">🗺️ Strategic foresight<small>Spotting risks and opportunities 2+ years out</small></div>
+        <div class="we-item">🏗️ Organisational design<small>Seeing and shaping structure, not just operating within it</small></div>
+        <div class="we-item">📚 Deep product knowledge<small>Understanding all the whys to work with more conviction</small></div>
+        <div class="we-item">⏸️ Letting things sit<small>Resisting the pull to immediate resolution</small></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:rgba(255,140,46,.07);border:1px solid rgba(255,140,46,.2);border-radius:9px;padding:12px 15px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;">🔑 The pattern</div>
+      <div style="font-size:.76rem;color:var(--light);line-height:1.55;font-weight:300;">Notice that calm is both a hidden strength <em>and</em> a growth edge. <strong style="color:var(--white)">We have it — we're just not spreading it around.</strong> The opportunity is already in the room.</div>
+    </div>
+  </div>
+
+  <!-- HOW TO SUPPORT EACH OTHER -->
+  <div class="card">
+    <div class="card-label">When Things Get Hard</div>
+    <div class="card-title">How to Support Each Other</div>
+    <div class="card-body">We don't all need the same thing under pressure. This is what we said works for us — use it.</div>
+    <div class="support-list">
+      <div class="support-item">
+        <div class="support-top"><div class="support-label">🔄 Zoom me out</div><div class="support-n" style="color:var(--blue)">6 of us</div></div>
+        <div class="support-track"><div class="support-fill" style="width:46%;background:var(--blue)"></div></div>
+        <div class="support-desc">When we're lost in detail, remind us of the goal and the progress. Context beats reassurance every time for almost half the team.</div>
+      </div>
+      <div class="support-item">
+        <div class="support-top"><div class="support-label">🎤 Let me vent</div><div class="support-n" style="color:var(--yellow)">3 of us</div></div>
+        <div class="support-track"><div class="support-fill" style="width:23%;background:var(--yellow)"></div></div>
+        <div class="support-desc">Just listen. No fixing, no advice — stay quiet until the words run out.</div>
+      </div>
+      <div class="support-item">
+        <div class="support-top"><div class="support-label">🎯 Help me start</div><div class="support-n" style="color:var(--green)">3 people</div></div>
+        <div class="support-track"><div class="support-fill" style="width:23%;background:var(--green)"></div></div>
+        <div class="support-desc">Ask directly, or help break the paralysis. Once moving, we're fine.</div>
+      </div>
+      <div class="support-item">
+        <div class="support-top"><div class="support-label">☕ Just sit with me</div><div class="support-n" style="color:var(--muted)">1 of us</div></div>
+        <div class="support-track"><div class="support-fill" style="width:8%;background:var(--muted)"></div></div>
+        <div class="support-desc">Presence without pressure. No solving — just don't leave them alone in it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE PATTERN -->
+  <div class="card">
+    <div class="card-label">The Biggest Pattern</div>
+    <div class="card-title">We Have More to Say Than We're Saying</div>
+    <div class="card-body">The most consistent thing across all 13 answers. Worth looking at together.</div>
+    <div class="insight orange">
+      <h4>⚠️ 5 of us want more voice</h4>
+      <p>Five people said some version of the same thing (and a sixth added a different angle: not wanting to lose the freshness of celebrating small wins as the role gets heavier): they want to be more direct, more confident, or more capable of communicating with the right people. Some of us are still in the early months of being here — building context, building trust, finding their voice in a new environment. That's entirely normal. <strong>The instincts are there across the board.</strong> What's developing — for different reasons for different people — is the confidence to back them fully.</p>
+    </div>
+    <div class="insight green">
+      <h4>💪 7 of us chose essential-but-invisible</h4>
+      <p>Tomato sauce, mozzarella, cheese, caramelised onion — <strong>most of us described ourselves as the ingredient that holds everything together without being noticed.</strong> That's not false modesty. But it might be worth asking: what would it look like to be more visible about what we bring?</p>
+    </div>
+    <div class="insight blue">
+      <h4>🔄 Under pressure, we lose altitude</h4>
+      <p>Almost half the team said their support need is being zoomed out. When things get hard, <strong>we tend to dive into detail rather than stay connected to the goal.</strong> Knowing this about ourselves is already half of fixing it.</p>
+    </div>
+  </div>
+
+
+  <!-- WHO WE ARE -->
+  <div class="card full">
+    <div class="card-label">The Big Picture</div>
+    <div class="card-title">What This All Says About Us</div>
+    <div class="summary-wrap">
+      <div class="summary-title">The team we actually are</div>
+      <p class="summary-p">We're a team with <em>genuine analytical depth, strong structural discipline, and more calm than we give ourselves credit for</em>. Six different working styles across 15 people — at different stages of their time here — means we cover almost every angle. The thinkers, the executors, the connectors, the energisers, the detail-catchers. That breadth is rare, and it gets richer as the newer members build their picture of who we are.</p>
+      <p class="summary-p">Our energy is spread across a healthy range. Most of us are managing well — and 3 in full orbit bringing real energy. One of us needs a win right now and the rest of us can help make that happen.</p>
+      <p class="summary-p">The thing most worth sitting with is the voice pattern. <strong>Five people want to say their thing more clearly and more confidently.</strong> We have the ideas. We have the instincts. What we're still building is the collective permission to back them fully — with stakeholders, with each other, in the moments that matter.</p>
+      <p class="summary-p">The hidden strengths in this team are real. <em>Organisation, calm under pressure, the ability to hold complexity, the instinct to catch what others miss.</em> These aren't small things. They're what makes delivery possible. The work now is making them visible — to each other, and to the people outside this room who benefit from them every day.</p>
+    </div>
+  </div>
+
+  <!-- CONVERSATION STARTERS -->
+  <div class="card full">
+    <div class="card-label">Let's Talk About It</div>
+    <div class="card-title">Four Conversations Worth Having Today</div>
+    <div class="conv-list">
+      <div class="conv c1">
+        <div class="conv-title">What do we take for granted in each other?</div>
+        <div class="conv-body">The hidden superpowers in this team are real — but they're hidden for a reason. <strong>What's one thing someone on this team does that you rely on without ever naming out loud?</strong> Say it today.</div>
+        <div class="conv-q">💬 Go around the room: name one thing someone here does that the team would really miss.</div>
+      </div>
+      <div class="conv c2">
+        <div class="conv-title">When we're struggling, are we actually helping each other?</div>
+        <div class="conv-body">We have four different support needs. Most of us default to what works for us — not what works for the other person. <strong>Do we actually know how to show up for each other?</strong></div>
+        <div class="conv-q">💬 Think of the last time someone on this team was having a hard time. Did you know what they needed? Did you do it?</div>
+      </div>
+      <div class="conv c3">
+        <div class="conv-title">What are we not saying that we should be?</div>
+        <div class="conv-body">Five of us want more confidence to speak up. That's not a personal problem — it's a team signal. <strong>What's one thing we know but aren't fully saying yet — to each other, or to people outside this team?</strong></div>
+        <div class="conv-q">💬 What's one thing you've been thinking about the team, the work or the way we operate that you haven't said out loud yet?</div>
+      </div>
+      <div class="conv c4">
+        <div class="conv-title">What does the team need right now to be at its best?</div>
+        <div class="conv-body">Not in theory — right now, in this season, with the mix of experience and energy we actually have. Some of us are established, some are still building their picture of the team. <strong>What's the one thing that would make the biggest difference to how we work together over the next three months?</strong></div>
+        <div class="conv-q">💬 One thing. Not a wishlist. If we could only change one thing about how we work together, what would it be?</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SHARED JS
+════════════════════════════════════════ -->
+<script>
+// ── AUDIO ──
+let currentAudio = null;
+
+// ── NAV ──
+function showPage(id) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ── TEAM DATA ──
+const TEAM = [
+  {name:"Iulia",q1:"🦦 The Otter — suspiciously cheerful, gets things done while having the best time",q2:"Supermode - Tell Me Why",q3:"Mozzarella — stretchy, reliable, somehow involved in every successful pizza.",q4:"🎯 Help me pick one thing and start — decision paralysis is the enemy",q5:"🌊 Riding waves — highs and lows but staying afloat",q6:"Selective overthinking — identify the one thing that matters and ignore the other 47 scenarios.",q7:"Meeting Magician — turns 60 minutes of discussion into 3 clear decisions and 5 actions with owners.",q8:"Two speeds: highly active PM mode or burrito mode — lying on the couch like a decorative pillow.",statement:"This is a person who makes order look effortless — not because the work is easy, but because the process of converting chaos into clarity is genuinely where this person thrives. There\'s a high-energy optimism at the surface that can obscure how much structural thinking is running underneath it. The growth edge points to someone who already processes everything, and wants to get better at choosing which things are worth processing at all. The self-awareness about recovery is notable — knowing when to stop is a skill most high-output people take years to develop."},
+  {name:"Ale",q1:"🦆 The Duck — looks calm on the surface, absolutely sprinting underneath",q2:"Bad Bunny - Tití Me Preguntó",q3:"Truffle — not the loudest ingredient, but brings a depth that changes the flavour.",q4:"🎤 Let me vent — no advice, no fixes, just ears",q5:"🌊 Riding waves — highs and lows but staying afloat",q6:"Unshakeable calm through every storm.",q7:"Catches what nobody else notices — a date that doesn't match, a field that's missing, a detail buried in a thread from three weeks ago.",q8:"Checked off my 40th country.",statement:"This is a person whose value is most felt in its absence. The contribution is precise, quiet and often invisible — a kind of pattern recognition that operates across time and surfaces exactly when it matters. There\'s composure on the outside that doesn\'t fully reflect what\'s being managed internally. The growth edge reveals that the calm admired in others isn\'t something this person naturally has — it\'s something actively sought, which tells you the internal experience is busier than the exterior suggests."},
+  {name:"Denis",q1:"🦆 The Duck — looks calm on the surface, absolutely sprinting underneath",q2:"Queen - Don't Stop Me Now",q3:"Caramelized Onion — enriches everything with more depth over time.",q4:"🎯 Help me pick one thing and start — decision paralysis is the enemy",q5:"🌊 Riding waves — highs and lows but staying afloat",q6:"Letting things sit without looking for answers or next steps immediately.",q7:"Ultimate ownership.",q8:"Once played Kenickie in Grease Lightning.",statement:"This is a person defined by accountability — the kind that doesn\'t wait to be assigned, just felt. The value compounds over time rather than announcing itself immediately, which means this person\'s contribution is often most visible in retrospect. The growth edge is the revealing part: wanting to resist the pull toward immediate resolution is the exact inverse of deep ownership as a strength. The person who takes full responsibility for outcomes finds it hardest to do nothing and wait. High ownership and high pace — a powerful combination and an exhausting one."},
+  {name:"Chris",q1:"🦔 The Hedgehog — quiet, a little prickly when interrupted, secretly the most reliable person here",q2:"Queen - We Are the Champions",q3:"Margherita — basic but reliable. Always room for extra toppings, but always there as a backup when the toppings don't make sense.",q4:"🔄 Help me zoom out — remind me of the big picture",q5:"🛁 Soaking — recharging and reflecting",q6:"Stoicism — being aware of what I can influence and accepting calmly what I can't.",q7:"Risk obsession — can't look at a large task or plan without assessing risk.",q8:"Sick of the English.",statement:"This is a person who cannot look at a plan without immediately scanning it for what could go wrong — and who has learned, probably through experience, that this instinct is a form of care rather than pessimism. The reliability runs deep and structural: this is someone who shows up not to be seen but because that\'s what they do. The current season suggests a deliberate step back — not disengagement, but recalibration before the next push. The growth edge reveals someone who feels the weight of what they can\'t control more than the composed exterior suggests."},
+  {name:"Anca F",q1:"🦙 The Alpaca — looks fluffy and approachable, deceptively high standards, quietly analysing everything",q2:"Sia - Unstoppable",q3:"Mozzarella — connects without needing to be the main character. Adapts, supports, helps everyone work better together.",q4:"🧹 Ask me what I need — and help if you can",q5:"🌱 Planting seeds — building slow and steady",q6:"The ability to stop overanalysing and just be more direct.",q7:"Staying calm and composed regardless of what's happening internally.",q8:"Was a teacher for a short time.",statement:"This is a person who has done considerable inner work and carries it quietly. The composure isn\'t a lucky temperament — it\'s something built, held deliberately, and offered to the people around them as a kind of steadiness they may not even name. Currently building in a deliberate and unhurried way. The growth edge is the most revealing answer: the thinking is already done thoroughly before speaking — what\'s missing is the trust to skip straight to the conclusion. The people who appear most direct have often done exactly this kind of analysis first. This person has the thought. What\'s still developing is the permission to lead with it."},
+  {name:"Lucy",q1:"🦙 The Alpaca — looks fluffy and approachable, deceptively high standards, quietly analysing everything",q2:"Rammstein - Rammlied",q3:"Tomato sauce — lays the foundation for all the other ingredients. The pizza wouldn't taste as good without it.",q4:"🎤 Let me vent — no advice, no fixes, just ears",q5:"🌱 Planting seeds — building slow and steady",q6:"Iulia's enthusiasm and her way of communicating with stakeholders — clear, calm and composed.",q7:"Quite creative, and usually knows exactly what they want before knowing how to say it.",q8:"Cannot ride a bike to save my life.",statement:"This is a person who lays foundations before anyone else knows a foundation is needed, then steps back while others build on them. The standards are high and held quietly — never announced, always apparent in the output. Currently in a deliberate building phase: the analysis is running, the thinking is happening, the results just aren\'t visible yet. The growth edge tells you that clarity of communication is the aspiration — not louder, but more alive, more compelling, more able to carry the energy of conviction. The hidden power is a particular kind of intelligence: knowing what you want before the language for it exists. That\'s the thing that shapes outcomes without needing credit."},
+  {name:"Osan Horia",q1:"🦩 The Flamingo — effortlessly stylish, always balanced, makes everything look easy",q2:"Dire Straits - Lady Writer",q3:"Prosciutto Cotto — stays in shape even when the heat is high.",q4:"🧹 Ask me what I need — and help if you can",q5:"🚀 In orbit — everything is moving fast",q6:"The ability to spot risks 2 years before they happen.",q7:"Can convert chaos into mild optimism — realism with a positive frame.",q8:"Treats meal prep and finances like Release Management.",statement:"This is a person who has found a way to hold pressure without being deformed by it. The composure is genuine rather than performed — and notably, it extends into how this person structures even personal life, treating things others treat as ordinary as systems to be managed. Currently at full pace. The growth edge points to someone already comfortable reading the present — the horizon is where the gap is felt. The hidden power is unusual: most people choose between optimism and realism. This person has learned to hold both simultaneously, which makes them stabilising rather than simply soothing."},
+  {name:"David",q1:"🦙 The Alpaca — looks fluffy and approachable, deceptively high standards, quietly analysing everything",q2:"Paul Oakenfold - Café del Mar",q3:"Cheese — might look like it's melted in the heat but is actually getting into everything else.",q4:"🔄 Help me zoom out — remind me of the big picture",q5:"🌊 Riding waves — highs and lows but staying afloat",q6:"Iulia's calm and control.",q7:"Deep thinker — considers all the angles.",q8:"Once washed hair with toilet cleaner soap from the cage hanging in the bowl.",statement:"This is a person who processes deeply before moving — all the angles, all the implications, all the ways a thing could unfold. The value isn\'t always visible in the moment; it integrates into everything that follows. Currently managing well across variable highs and lows, not easily rattled. The growth edge reveals that the internal experience of deliberate thinking feels less composed than it appears from outside — the calm admired in others is something actively sought. Under pressure, what helps most is distance from the detail: not more information, but the reason the information matters."},
+  {name:"Alexa",q1:"🦙 The Alpaca — looks fluffy and approachable, deceptively high standards, quietly analysing everything",q2:"Jennie - Like Jennie",q3:"Tomato sauce — you don't notice it when it's there, but if it's missing the whole thing doesn't work.",q4:"🔄 Help me zoom out — remind me of the big picture",q5:"🚀 In orbit — everything is moving fast",q6:"Product knowledge — understanding all the whys makes it so much easier to work confidently.",q7:"Finds flow in the most in-detail, manual, analytical tasks that everyone else avoids.",q8:"Played guitar for 15 years — stopped when started doing nails.",statement:"This is a person who is most alive doing the work that everyone else puts off. The detailed, methodical tasks that others treat as overhead are where genuine flow lives for this person — and that\'s a rare and scalable gift in delivery roles. Currently at full pace with high standards running quietly underneath. The growth edge isn\'t about knowing more — it\'s about the confidence that comes from understanding the full story behind the work. This person already knows how to execute. What unlocks the next level is the conviction that comes from understanding the why, not just the how."},
+  {name:"Judit",q1:"🦙 The Alpaca — looks fluffy and approachable, deceptively high standards, quietly analysing everything",q2:"Queen - Don't Stop Me Now",q3:"Tomato sauce — must have, but also sweet and sour at the same time.",q4:"☕ Just sit with me — no agenda, just company",q5:"🌊 Riding waves — highs and lows but staying afloat",q6:"Organisational design.",q7:"Building trust and connections. Adaptability.",q8:"Earned a diploma in modelling.",statement:"This is a person who carries both ease and edge depending on the day, and is comfortable with that complexity. The contribution is essential and present — felt most in its absence, but also occasionally sharp in ways that catch people off guard. Currently navigating variable energy, managing the highs and lows without being knocked over. When things get difficult, what helps is not solutions or check-ins but simple presence — someone willing to be in the room without an agenda. The growth edge reveals someone who already sees structural gaps clearly, and wants the authority and tools to act on what they see."},
+  {name:"Adi Cristian",q1:"🦆 The Duck — looks calm on the surface, absolutely sprinting underneath",q2:"Foo Fighters - My Hero",q3:"Cheese — trying to help out everywhere, might get too thin occasionally.",q4:"🔄 Help me zoom out — remind me of the big picture",q5:"🌱 Planting seeds — building slow and steady",q6:"The ability to tailor communication to corporate stakeholders.",q7:"Technical understanding of software basics — helps read situations quicker.",q8:"Sleeps with eyes open when very tired. Can be quite creepy.",statement:"This is a person with a composed exterior and a significant amount running underneath — and the self-awareness to recognise when the effort of helping everywhere starts to stretch too thin. Currently in a deliberate building phase. The growth edge is specific and honest: not general confidence, but the precise ability to adjust communication for a particular kind of audience. The ideas are there, the instincts are right — what\'s being calibrated is the register. The hidden power is the ability to read technical situations that others can only describe, which in non-technical environments is worth considerably more than it gets credited."},
+  {name:"Denisia",q1:"🐙 The Octopus — eight things at once, all of them somehow working",q2:"Limp Bizkit - Rollin'",q3:"Caramelized Onion — brings depth, stability and connection. Impact noticed more in absence than presence.",q4:"🎤 Let me vent — no advice, no fixes, just ears",q5:"🌊 Riding waves — highs and lows but staying afloat",q6:"Clarity in communication when things go wrong and everyone needs a clear status.",q7:"Notices connections between people, ideas and perspectives — reduces friction and creates clarity without taking centre stage.",q8:"Has a motorcycle driving licence. Hasn't ridden one in over 15 years.",statement:"This is a person running significant complexity simultaneously and making most of it work through a particular kind of intelligence — noticing where things don\'t connect, reducing the friction, creating clarity without needing to be the one who gets the credit. The contribution is most felt in absence: when this person isn\'t there, the seams start to show. Currently managing well across variable conditions. The growth edge is about communication at moments of crisis — wanting to be the person who cuts through the noise and gives everyone a clear picture when things go wrong. The hidden power and the growth edge point in the same direction: connection and clarity as a form of care."},
+  {name:"Csilla",q1:"🦔 The Hedgehog — quiet, a little prickly when interrupted, secretly the most reliable person here",q2:"Luther Vandross - Never Too Much",q3:"Cheese — one of the most essential ingredients. Keeps the whole picture together.",q4:"🔄 Help me zoom out — remind me of the big picture",q5:"🌱 Planting seeds — building slow and steady",q6:"The confidence to lead with authority — to manage tasks and teams with ease, like a natural.",q7:"Organised and disciplined. Keeps project documentation at a high standard. Tracks and monitors everything.",q8:"Not a good manager at home.",statement:"This is a person who keeps the structural picture together while everyone else is focused on their individual piece. The discipline is genuine and high-standard — not performative, but deeply embedded in how this person approaches work. Currently building steadily and deliberately. The growth edge is the most telling answer: not wanting to become a leader, but wanting to lead with the confidence and authority of the naturals they admire. The capability is clearly present. What\'s still developing is the willingness to fully claim the identity that goes with the work already being done. That distance is almost always smaller than it feels from the inside."},
+  {name:"Diana",q1:"🦆 The Duck — looks calm on the surface, absolutely sprinting underneath",q2:"Dua Lipa - Radical Optimism (full album)",q3:"Mozzarella — quiet, easygoing, never tries to steal the spotlight. Everyone notices when she's not there.",q4:"🔄 Help me zoom out — remind me of the big picture",q5:"🫠 Melting — surviving but need a win",q6:"The ability to speak in public effortlessly — sparkling, fizzy, impossible not to watch.",q7:"Remembers all open issues on every project, constantly ticking them off in her mind.",q8:"Doesn't know how to swim. Saw 9 bears in one day — not at the zoo.",statement:"This is a person with a calm, steady exterior that doesn\'t fully reflect what\'s being tracked, managed and processed internally. The hidden power is a kind of background system — open issues catalogued, prioritised, never dropped — that runs constantly without anyone else knowing it\'s there. Currently at a low point and needs a genuine win. The growth edge is specifically about visibility: not being heard more, but being seen more fully — the confidence to let the substance show up in public, not just in private. This is someone who doesn\'t do things by halves."},
+  {name:"Veronica",q1:"🦙 The Alpaca — looks fluffy and approachable, deceptively high standards, quietly analysing everything",q2:"DJO - End of Beginning",q3:"Goat cheese — looks soft and chill, but has a very specific opinion and somehow makes the whole pizza feel elevated.",q4:"🎯 Help me pick one thing and start — decision paralysis is the enemy",q5:"🚀 In orbit — everything is moving fast",q6:"The excitement and pride new team members bring to every win — the ability to genuinely celebrate progress, no matter how small.",q7:"I make complicated things feel manageable. Half project management, half emotional support.",q8:"Probably nothing — I'm a pretty open book.",statement:"This is a person who makes complexity feel manageable — not by simplifying it, but by holding it steadily enough that others can navigate it. In full orbit right now, moving fast. The goat cheese self-description is unusually precise: a specific opinion delivered softly, with an effect that elevates everything around it without announcing itself. The superpower they want to steal is the freshness of new beginnings — the ability to celebrate small wins with full conviction before the weight of responsibility makes that harder. That\'s not a naive wish. It\'s someone who can already see the drift happening and wants to resist it. The open book shocking fact is itself a reveal: most people perform mystery here. Choosing transparency is its own kind of statement."}
+];
+
+// ── HELPERS ──
+function animalEmoji(q1){
+  if(!q1)return'🐾';
+  if(q1.includes('Otter'))return'🦦';if(q1.includes('Alpaca'))return'🦙';
+  if(q1.includes('Rooster'))return'🐓';if(q1.includes('Hedgehog'))return'🦔';
+  if(q1.includes('Duck'))return'🦆';if(q1.includes('Penguin'))return'🐧';
+  if(q1.includes('Kangaroo'))return'🦘';if(q1.includes('Octopus'))return'🐙';
+  if(q1.includes('Flamingo'))return'🦩';return'🐾';
+}
+function animalShort(q1){return q1?q1.split('—')[0].trim():'';}
+function vibeShort(q5){return q5?q5.split('—')[0].trim():'';}
+
+// ── BUILD MOODBOARD TILES ──
+const tilesContainer = document.getElementById('tilesEl');
+TEAM.forEach((e, i) => {
+  const tile = document.createElement('div');
+  tile.className = 'tile';
+  tile.style.animationDelay = `${i * .06}s`;
+  tile.innerHTML = `<span class="tile-emoji">${animalEmoji(e.q1)}</span><div class="tile-animal">${animalShort(e.q1).replace(/^.\s/, '')}</div><div class="tile-vibe">${vibeShort(e.q5)}</div><div class="tile-hint">🕵️ Click to guess</div>`;
+  tile.onclick = () => openGuess(e);
+  tilesContainer.appendChild(tile);
+});
+
+// ── BUILD ALL ANSWERS GRID ──
+const allGrid = document.getElementById('allAnswersGrid');
+TEAM.forEach(e => {
+  const card = document.createElement('div');
+  card.style.cssText = 'background:var(--navy3);border:1.5px solid var(--blue2);border-radius:14px;overflow:hidden;';
+  card.innerHTML = `
+    <div style="background:var(--navy2);padding:16px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--blue2);">
+      <span style="font-size:1.8rem;">${animalEmoji(e.q1)}</span>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--yellow);">${e.name}</div>
+        <div style="font-size:.7rem;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;">${animalShort(e.q1).replace(/^.\s/, '')} · ${vibeShort(e.q5)}</div>
+      </div>
+    </div>
+    <div style="padding:14px 18px;">
+      ${[
+        ['🎵', 'Power Anthem', e.q2],
+        ['🍕', 'Pizza Identity', e.q3],
+        ['🆘', 'Support Protocol', e.q4],
+        ['🌈', 'Growth Edge', e.q6],
+        ['🃏', 'Hidden Superpower', e.q7],
+        ['🎭', 'Shocking Fact', e.q8],
+      ].map(([icon, label, val]) => `
+        <div style="padding:7px 0;border-bottom:1px solid var(--blue3);">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">${icon} ${label}</div>
+          <div style="font-size:.8rem;color:var(--light);line-height:1.4;">${val}</div>
+        </div>`).join('')}
+      <div style="padding-top:10px;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;">✨ AI Statement</div>
+        <div style="font-size:.78rem;color:var(--light);line-height:1.65;font-style:italic;font-weight:300;">${e.statement}</div>
+      </div>
+    </div>`;
+  allGrid.appendChild(card);
+});
+
+// ── MOODBOARD REVEAL ──
+function openGuess(e) {
+  const emoji = animalEmoji(e.q1);
+  document.getElementById('modal').innerHTML = `
+    <div class="guess-screen" id="guessScreen">
+      <div class="guess-hero"><span class="mystery-emoji">❓</span><div class="guess-eyebrow">🕵️ Who is this teammate?</div><div class="guess-animal"><em>${animalShort(e.q1).replace(/^.\s/, '')}</em></div><div class="guess-vibe">${vibeShort(e.q5)}</div></div>
+      <div class="statement-wrap"><div class="statement-label">✨ AI Statement</div><div class="statement-text">${e.statement}</div></div>
+      <div class="guess-actions"><button class="reveal-btn" onclick="revealCard()">🎉 Reveal!</button></div>
+    </div>
+    <div class="reveal-screen" id="revealScreen">
+      <div class="m-hero"><div class="m-hero-bg"></div><div class="m-avatar">${emoji}</div><div><div class="m-name">${e.name}</div><div class="m-sub">Official Moodboard · Class of 2026</div></div></div>
+      <div class="music-bar">
+        <div class="music-searching" id="musicSearching">
+          <div class="spin-disk"></div>
+          <div class="s-info"><div class="s-title">${e.q2}</div><div class="s-status">🔍 Searching…</div></div>
+          <div class="eq-bars"><div class="eq" style="--d:.6s;--h:12px;height:5px"></div><div class="eq" style="--d:.4s;--h:18px;height:12px"></div><div class="eq" style="--d:.7s;--h:8px;height:3px"></div><div class="eq" style="--d:.5s;--h:16px;height:9px"></div><div class="eq" style="--d:.35s;--h:20px;height:15px"></div></div>
+        </div>
+        <div class="music-player" id="musicPlayer">
+          <div class="player-top">
+            <img class="album-art" id="albumArt" src="" alt=""/>
+            <div class="track-info"><div class="track-name" id="trackName"></div><div class="track-artist" id="trackArtist"></div></div>
+            <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+          </div>
+          <div class="progress-track" onclick="seekTo(event)"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="time-row"><span class="time-label" id="currentTime">0:00</span><a class="spotify-open" id="spotifyLink" href="#" target="_blank">🎵 Open in Spotify →</a><span class="time-label">0:30</span></div>
+        </div>
+        <div class="music-notfound" id="musicNotFound">🎵 <span id="notFoundInner"></span></div>
+      </div>
+      <div class="m-grid">
+        <div class="m-cell" data-emoji="🐾"><div class="m-cell-label">🐾 Spirit Animal</div><div class="m-cell-val yellow">${e.q1}</div></div>
+        <div class="m-cell" data-emoji="🍕"><div class="m-cell-label">🍕 Pizza Identity</div><div class="m-cell-val">${e.q3}</div></div>
+        <div class="m-cell" data-emoji="🆘"><div class="m-cell-label">🆘 Support Protocol</div><div class="m-cell-val blue">${e.q4}</div></div>
+        <div class="m-cell" data-emoji="🌡️"><div class="m-cell-label">🌡️ Current Season</div><div class="m-cell-val">${e.q5}</div></div>
+        <div class="m-cell" data-emoji="🌈"><div class="m-cell-label">🌈 Growth Edge</div><div class="m-cell-val blue">${e.q6}</div></div>
+        <div class="m-cell" data-emoji="🃏"><div class="m-cell-label">🃏 Hidden Superpower</div><div class="m-cell-val">${e.q7}</div></div>
+      </div>
+      <div class="m-footer"><span style="font-size:1rem">🎭</span><div><strong>Shocking Fact: </strong><em>"${e.q8}"</em></div></div>
+      <div class="ai-statement"><div class="ai-label">✨ AI Statement</div><div class="ai-text">${e.statement}</div></div>
+    </div>`;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+async function revealCard() {
+  document.getElementById('guessScreen').style.display = 'none';
+  document.getElementById('revealScreen').style.display = 'block';
+  const songTitle = document.querySelector('.s-title')?.textContent;
+  if (!songTitle) return;
+  const track = await searchTrack(songTitle);
+  document.getElementById('musicSearching').style.display = 'none';
+  if (track.found && track.preview) {
+    document.getElementById('albumArt').src = track.art;
+    document.getElementById('trackName').textContent = track.name;
+    document.getElementById('trackArtist').textContent = track.artist;
+    document.getElementById('spotifyLink').href = track.spotifyUrl;
+    document.getElementById('musicPlayer').style.display = 'block';
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    currentAudio = new Audio(track.preview);
+    currentAudio.volume = 0.85;
+    currentAudio.addEventListener('timeupdate', () => {
+      const pct = Math.min((currentAudio.currentTime / 30) * 100, 100);
+      const f = document.getElementById('progressFill'), ct = document.getElementById('currentTime');
+      if (f) f.style.width = pct + '%';
+      if (ct) { const s = Math.floor(currentAudio.currentTime); ct.textContent = `0:${s.toString().padStart(2,'0')}`; }
+    });
+    currentAudio.addEventListener('ended', () => { const b = document.getElementById('playBtn'); if (b) b.textContent = '▶'; });
+    currentAudio.play().then(() => { const b = document.getElementById('playBtn'); if (b) b.textContent = '⏸'; }).catch(() => {});
+  } else {
+    const nf = document.getElementById('musicNotFound'), ni = document.getElementById('notFoundInner');
+    if (nf && ni) { nf.style.display = 'block'; ni.innerHTML = `<a href="https://open.spotify.com/search/${encodeURIComponent(songTitle)}" target="_blank">Search on Spotify →</a>`; }
+  }
+}
+
+async function searchTrack(query) {
+  try {
+    const clean = query.replace(/[-–]\s*(remix|edit|mix|version|radio|extended|instrumental|remaster|live|acoustic|feat\.|ft\.)[^,]*/gi, '').trim();
+    const forceOriginal = /queen/i.test(clean) || /bad bunny/i.test(clean);
+    const searchTerm = forceOriginal ? clean + ' original' : clean;
+    const r = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&limit=25&entity=song`);
+    const d = await r.json();
+    if (d.results && d.results.length > 0) {
+      const skip = /remix|edit|live|acoustic|remaster|instrumental|radio\s?edit|voiceplay|karaoke|tribute|cover|a\s?cappella|medley|made\s?famous/i;
+      const queryArtist = clean.split(/[-–]/)[0].trim().toLowerCase();
+      const byOriginalArtist = d.results.filter(t => t.previewUrl && !skip.test(t.trackName) && !skip.test(t.artistName) && t.artistName.toLowerCase().includes(queryArtist.split(' ')[0]));
+      const fallback = d.results.filter(t => t.previewUrl && !skip.test(t.trackName) && !skip.test(t.artistName));
+      const track = byOriginalArtist[0] || fallback[0];
+      if (track) return { found: true, name: track.trackName, artist: track.artistName, preview: track.previewUrl, art: track.artworkUrl100.replace('100x100bb', '300x300bb'), spotifyUrl: `https://open.spotify.com/search/${encodeURIComponent(track.trackName + ' ' + track.artistName)}` };
+    }
+    return { found: false };
+  } catch { return { found: false }; }
+}
+
+function togglePlay() {
+  if (!currentAudio) return;
+  const b = document.getElementById('playBtn');
+  if (currentAudio.paused) { currentAudio.play(); if (b) b.textContent = '⏸'; }
+  else { currentAudio.pause(); if (b) b.textContent = '▶'; }
+}
+
+function seekTo(ev) {
+  if (!currentAudio) return;
+  const rect = ev.currentTarget.getBoundingClientRect();
+  currentAudio.currentTime = ((ev.clientX - rect.left) / rect.width) * 30;
+}
+
+function closeOverlay() {
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModal(ev) {
+  if (ev.target === document.getElementById('overlay')) closeOverlay();
+}
+</script>
+</body>
+</html>
